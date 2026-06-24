@@ -37,7 +37,6 @@
             overflow: hidden;
         }
 
-        /* ÁGUA - ondas mais sutis */
         .water-bg {
             position: absolute;
             top: 0;
@@ -78,7 +77,6 @@
             z-index: 2;
         }
 
-        /* TÍTULO - sem estrelas, mais compacto */
         .main-title {
             font-family: 'MedievalSharp', 'Cinzel', cursive;
             font-size: 2.8rem;
@@ -107,7 +105,6 @@
             border-radius: 40px;
         }
 
-        /* ABAS - sem ícones, mais compactas */
         .tabs {
             display: flex;
             flex-wrap: wrap;
@@ -152,7 +149,6 @@
             border-radius: 30px 30px 0 0;
         }
 
-        /* CONTEÚDO - mais compacto */
         .tab-content {
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(4px);
@@ -174,7 +170,6 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* TÍTULOS DAS SEÇÕES - menores */
         h2 {
             font-family: 'MedievalSharp', 'Cinzel', cursive;
             color: #f5e5b0;
@@ -193,12 +188,7 @@
             font-size: 0.9rem;
             letter-spacing: 0.3px;
         }
-        .info-text i {
-            color: #d4af37;
-            margin-right: 6px;
-        }
 
-        /* INPUTS E BOTÕES - mais compactos */
         input, select, textarea {
             width: 100%;
             max-width: 350px;
@@ -266,16 +256,16 @@
             margin: 16px 0 8px;
             box-shadow: inset 0 0 20px #00000077, 0 6px 15px #000000aa;
             color: #f0e0c0;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-family: 'Cinzel', serif;
             word-break: break-word;
+            line-height: 1.8;
         }
         .result-box i {
             color: #d4af37;
             margin-right: 10px;
         }
 
-        /* CARDS DE INFO - compactos */
         .info-card {
             background: rgba(0,0,0,0.3);
             border-radius: 50px !important;
@@ -310,7 +300,6 @@
             color: #d4af37;
         }
 
-        /* RODAPÉ - compacto */
         .footer {
             margin-top: 20px;
             text-align: center;
@@ -321,35 +310,6 @@
             border-radius: 40px;
         }
 
-        /* RESPONSIVO */
-        @media (max-width: 700px) {
-            .container { padding: 15px; border-radius: 30px; }
-            .main-title { font-size: 2.2rem; letter-spacing: 2px; }
-            .tab-btn { padding: 8px 14px; font-size: 0.75rem; }
-            .tab-content { padding: 16px; border-radius: 20px; }
-            h2 { font-size: 1.5rem; padding-left: 10px; }
-            input { max-width: 100%; }
-            .btn { padding: 8px 18px; font-size: 0.8rem; }
-            .result-box { padding: 12px 16px; font-size: 0.9rem; }
-        }
-        @media (max-width: 480px) {
-            .main-title { font-size: 1.8rem; }
-            .subtitle { font-size: 0.65rem; letter-spacing: 3px; padding: 3px 12px; }
-            .tab-btn { padding: 6px 10px; font-size: 0.65rem; letter-spacing: 0.5px; }
-            .info-card { padding: 14px; }
-            .info-card i { font-size: 1.6rem; }
-        }
-
-        /* Ajuste para labels */
-        label {
-            display: block;
-            font-size: 0.75rem;
-            color: #b8a07c;
-            margin-bottom: 2px;
-            letter-spacing: 1px;
-        }
-
-        /* Grupo de campos */
         .field-group {
             display: flex;
             flex-wrap: wrap;
@@ -363,6 +323,90 @@
         .field-group input {
             max-width: 100%;
         }
+
+        label {
+            display: block;
+            font-size: 0.75rem;
+            color: #b8a07c;
+            margin-bottom: 2px;
+            letter-spacing: 1px;
+        }
+
+        .cabala-tabela {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            border-radius: 30px;
+            overflow: hidden;
+            font-size: 0.85rem;
+        }
+        .cabala-tabela th {
+            background: #1a1410;
+            color: #d4af37;
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 2px solid #d4af3744;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .cabala-tabela td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #d4af3722;
+            color: #ddd0bc;
+        }
+        .cabala-tabela tr:last-child td {
+            border-bottom: none;
+        }
+        .cabala-tabela tr:hover td {
+            background: #1a141066;
+        }
+        .cabala-tabela .highlight {
+            color: #f5d742;
+            font-weight: 700;
+        }
+
+        .disclaimer {
+            background: #1a141066;
+            border-left: 4px solid #d4af37;
+            padding: 14px 20px;
+            border-radius: 30px;
+            margin-bottom: 18px;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: #c9b89a;
+            line-height: 1.7;
+        }
+
+        .ponto-explicacao {
+            margin: 12px 0;
+            padding: 12px 16px;
+            background: #0e0c0a88;
+            border-radius: 30px;
+            border: 1px solid #d4af3722;
+        }
+        .ponto-explicacao strong {
+            color: #f5d742;
+        }
+
+        @media (max-width: 700px) {
+            .container { padding: 15px; border-radius: 30px; }
+            .main-title { font-size: 2.2rem; letter-spacing: 2px; }
+            .tab-btn { padding: 8px 14px; font-size: 0.75rem; }
+            .tab-content { padding: 16px; border-radius: 20px; }
+            h2 { font-size: 1.5rem; padding-left: 10px; }
+            input { max-width: 100%; }
+            .btn { padding: 8px 18px; font-size: 0.8rem; }
+            .result-box { padding: 12px 16px; font-size: 0.85rem; }
+            .cabala-tabela { font-size: 0.75rem; }
+            .cabala-tabela th, .cabala-tabela td { padding: 6px 10px; }
+        }
+        @media (max-width: 480px) {
+            .main-title { font-size: 1.8rem; }
+            .subtitle { font-size: 0.65rem; letter-spacing: 3px; padding: 3px 12px; }
+            .tab-btn { padding: 6px 10px; font-size: 0.65rem; letter-spacing: 0.5px; }
+            .info-card { padding: 14px; }
+            .info-card i { font-size: 1.6rem; }
+        }
     </style>
 </head>
 <body>
@@ -370,13 +414,11 @@
     <div class="water-bg"></div>
 
     <div class="content">
-        <!-- Título sem estrelas -->
         <h1 class="main-title">Kelira</h1>
         <div style="text-align: center;">
             <span class="subtitle"><i class="fas fa-water water-icon"></i> espírito · mistério · oráculo <i class="fas fa-water water-icon"></i></span>
         </div>
 
-        <!-- Abas sem ícones -->
         <div class="tabs">
             <button class="tab-btn active" data-tab="inicio">Início</button>
             <button class="tab-btn" data-tab="cabala">Cabala</button>
@@ -405,32 +447,29 @@
                         <i class="fas fa-crown gold"></i> 
                         A sabedoria ancestral encontra a tecnologia.
                     </p>
-                    <div style="margin-top: 16px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-                        <span style="background: #1a1410; padding: 6px 20px; border-radius: 40px; border: 1px solid #d4af3733; font-size: 0.75rem;">
-                            <i class="fas fa-water" style="color: #2a8cbb;"></i> Água
-                        </span>
-                        <span style="background: #1a1410; padding: 6px 20px; border-radius: 40px; border: 1px solid #d4af3733; font-size: 0.75rem;">
-                            <i class="fas fa-star gold"></i> Ouro
-                        </span>
-                        <span style="background: #1a1410; padding: 6px 20px; border-radius: 40px; border: 1px solid #d4af3733; font-size: 0.75rem;">
-                            <i class="fas fa-circle" style="color: #111; text-shadow: 0 0 6px #d4af37;"></i> Preto
-                        </span>
-                    </div>
                 </div>
             </div>
 
             <!-- CABALA -->
             <div id="cabala" class="tab-pane">
-                <h2>Cabala</h2>
-                <p><i class="fas fa-water" style="color: #3b9bc0;"></i> Insira uma palavra para calcular sua correspondência cabalística.</p>
-                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
-                    <input type="text" id="cabalaInput" placeholder="Ex: Kelira" style="flex: 1; min-width: 180px;" />
-                    <button class="btn" onclick="calcularCabala()"><i class="fas fa-crown"></i> Calcular</button>
+                <h2>✨ Cabala</h2>
+                <p><i class="fas fa-water" style="color: #3b9bc0;"></i> Preencha seus dados para calcular sua cabala pessoal.</p>
+                
+                <div class="field-group">
+                    <div>
+                        <label>Nome Completo</label>
+                        <input type="text" id="cabalaNome" placeholder="Seu nome completo" />
+                    </div>
+                    <div>
+                        <label>Data de Nascimento</label>
+                        <input type="date" id="cabalaData" />
+                    </div>
                 </div>
+                <button class="btn" onclick="calcularCabalaCompleta()"><i class="fas fa-crown"></i> Calcular Cabala</button>
+                
                 <div id="cabalaResultado" class="result-box">
-                    <i class="fas fa-water"></i> Aguardando palavra...
+                    <i class="fas fa-water"></i> Aguardando seus dados...
                 </div>
-                <p style="font-size: 0.7rem; opacity: 0.6; margin-top: 4px;"><i class="fas fa-info-circle"></i> Soma simples A=1, B=2... Z=26.</p>
             </div>
 
             <!-- NUMEROLOGIA -->
@@ -444,7 +483,6 @@
                 <div id="numerologiaResultado" class="result-box">
                     <i class="fas fa-water"></i> Digite seu nome...
                 </div>
-                <p style="font-size: 0.7rem; opacity: 0.6; margin-top: 4px;"><i class="fas fa-info-circle"></i> Soma das vogais reduzida a 1 dígito.</p>
             </div>
 
             <!-- MAPA ASTRAL -->
@@ -469,11 +507,9 @@
                 <div id="mapaResultado" class="result-box">
                     <i class="fas fa-water"></i> Aguardando dados...
                 </div>
-                <p style="font-size: 0.7rem; opacity: 0.6; margin-top: 4px;"><i class="fas fa-info-circle"></i> Exemplo ilustrativo com base no signo solar.</p>
             </div>
         </div>
 
-        <!-- Rodapé compacto -->
         <div class="footer">
             <i class="fas fa-water" style="color: #2a6b8a;"></i>
             <span style="font-family: 'MedievalSharp', cursive; letter-spacing: 2px; color: #b8a07caa;">Kelira · místico & digital</span>
@@ -496,47 +532,185 @@
         });
     });
 
-    // CABALA
-    function calcularCabala() {
-        const input = document.getElementById('cabalaInput');
-        const palavra = input.value.trim().toUpperCase();
-        const resultado = document.getElementById('cabalaResultado');
+    // ============================================================
+    // CABALA COMPLETA
+    // ============================================================
+    const orixas = {
+        1: 'Exu', 2: 'Obá', 3: 'Ogum', 4: 'Egum-gum/Iemanjá',
+        5: 'Oxum', 6: 'Oxóssi/Obará', 7: 'Omulu', 8: 'Oxaguiã',
+        9: 'Iemanjá', 10: 'Oxalofã', 11: 'Iansã', 12: 'Xangô',
+        13: 'Nanã', 14: 'Oxumarê', 15: 'Iroko', 16: 'Orumilá'
+    };
 
-        if (!palavra) {
-            resultado.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #d4af37;"></i> Insira uma palavra.';
-            return;
-        }
+    const descricoes = {
+        'Odu': 'Representa a energia ancestral predominante. Quando não há desenvolvimento espiritual na vida atual, essa força tende a vir da encarnação anterior.',
+        'Nuca': 'Energia de proteção ligada ao que não é visível; atua no campo inconsciente e espiritual.',
+        'Testa': 'Energia que se manifesta primeiro. Funciona como o "ascendente": a forma como você se apresenta ao mundo e como é percebido.',
+        'Esquerda': 'Representa o karma: desafios e padrões difíceis que você veio trabalhar e superar nesta encarnação.',
+        'Direita': 'Indica seus dons naturais: energias com as quais você lida com mais facilidade.',
+        'Coroa': 'Energia central da encarnação atual; geralmente ligada a algo que você veio desenvolver ou conquistar.'
+    };
 
-        let soma = 0;
-        for (let i = 0; i < palavra.length; i++) {
-            const charCode = palavra.charCodeAt(i);
-            if (charCode >= 65 && charCode <= 90) soma += (charCode - 64);
-        }
-
-        if (soma === 0) {
-            resultado.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #d4af37;"></i> Apenas letras A-Z.';
-            return;
-        }
-
-        let reduzido = soma;
-        while (reduzido > 9 && reduzido !== 11 && reduzido !== 22 && reduzido !== 33) {
-            let temp = 0;
-            for (let i = 0; i < reduzido.toString().length; i++) {
-                temp += parseInt(reduzido.toString()[i]);
+    function reduzirAte16(num) {
+        while (num > 16) {
+            let soma = 0;
+            let str = num.toString();
+            for (let i = 0; i < str.length; i++) {
+                soma += parseInt(str[i]);
             }
-            reduzido = temp;
+            num = soma;
         }
-
-        resultado.innerHTML = `
-            <i class="fas fa-tree gold"></i> 
-            <strong style="color: #f5e5b0;">${palavra}</strong> → 
-            Soma: <span style="color: #d4af37;">${soma}</span> · 
-            Número: <span style="color: #f5d742; font-size: 1.4rem; font-weight: bold;">${reduzido}</span>
-            <i class="fas fa-water" style="color: #3b9bc0; margin-left: 8px;"></i>
-        `;
+        return num;
     }
 
-    // NUMEROLOGIA
+    function calcularCabalaCompleta() {
+        const nome = document.getElementById('cabalaNome').value.trim();
+        const data = document.getElementById('cabalaData').value;
+        const resultado = document.getElementById('cabalaResultado');
+
+        if (!nome || !data) {
+            resultado.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #d4af37;"></i> Por favor, preencha nome completo e data de nascimento.';
+            return;
+        }
+
+        // Extrair dia, mês, ano
+        const partes = data.split('-');
+        const ano = parseInt(partes[0]);
+        const mes = parseInt(partes[1]);
+        const dia = parseInt(partes[2]);
+
+        // Separar ano em dois primeiros e dois últimos dígitos
+        const anoStr = ano.toString();
+        const primeirosAno = parseInt(anoStr.substring(0, 2));
+        const ultimosAno = parseInt(anoStr.substring(2, 4));
+
+        // Linhas: dia, mês, primeirosAno, ultimosAno
+        const linha1 = dia;
+        const linha2 = mes;
+        const linha3 = primeirosAno;
+        const linha4 = ultimosAno;
+
+        // ODU: soma de todos os algarismos
+        let somaTotal = 0;
+        const todosNumeros = [linha1, linha2, linha3, linha4];
+        todosNumeros.forEach(num => {
+            let str = num.toString();
+            for (let i = 0; i < str.length; i++) {
+                somaTotal += parseInt(str[i]);
+            }
+        });
+        const odu = reduzirAte16(somaTotal);
+
+        // NUCA: soma da primeira coluna (soma dos algarismos de cada linha)
+        let nuca = 0;
+        todosNumeros.forEach(num => {
+            let str = num.toString();
+            nuca += parseInt(str[0]);
+        });
+        nuca = reduzirAte16(nuca);
+
+        // TESTA: soma da segunda coluna (se houver)
+        let testa = 0;
+        todosNumeros.forEach(num => {
+            let str = num.toString();
+            if (str.length > 1) {
+                testa += parseInt(str[1]);
+            }
+        });
+        testa = reduzirAte16(testa);
+
+        // DIREITA = Nuca + Testa
+        let direita = reduzirAte16(nuca + testa);
+
+        // ESQUERDA = Nuca + Testa + Direita
+        let esquerda = reduzirAte16(nuca + testa + direita);
+
+        // COROA = Nuca + Testa + Direita + Esquerda
+        let coroa = reduzirAte16(nuca + testa + direita + esquerda);
+
+        // Mapear para os orixás
+        const pontos = {
+            'Odu': odu,
+            'Nuca': nuca,
+            'Testa': testa,
+            'Direita': direita,
+            'Esquerda': esquerda,
+            'Coroa': coroa
+        };
+
+        // Construir resultado
+        let html = '';
+
+        // 1. DISCLAIMER OBRIGATÓRIO
+        html += `<div class="disclaimer">
+            <i class="fas fa-water" style="color: #4aa3d0;"></i>
+            Embora a leitura da cabala siga um método fixo de cálculo, as energias não se manifestam de forma totalmente rígida. A expressão dessas forças pode variar de acordo com o caminho espiritual da pessoa e seu momento de vida.
+            <br><br>
+            Um mesmo número pode representar uma base energética, mas sua manifestação prática tende a se adaptar à vibração atual do indivíduo, considerando o conjunto da cabala e seu nível de desenvolvimento.
+            <br><br>
+            Por isso, os resultados não devem ser interpretados como absolutos, mas como um direcionamento. Eles oferecem compreensão e base energética, mas o entendimento mais profundo exige acompanhamento e orientação espiritual adequada.
+        </div>`;
+
+        // 2. CABEÇALHO COM NOME
+        html += `<p style="font-size: 1.1rem; color: #f5e5b0; margin-bottom: 12px;">
+            <i class="fas fa-user gold"></i> <strong>${nome}</strong> · ${dia}/${mes}/${ano}
+        </p>`;
+
+        // 3. TABELA RESUMO
+        html += `<table class="cabala-tabela">
+            <thead>
+                <tr><th>Ponto</th><th>Número</th><th>Orixá</th></tr>
+            </thead>
+            <tbody>`;
+        for (let [ponto, valor] of Object.entries(pontos)) {
+            html += `<tr>
+                <td><strong>${ponto}</strong></td>
+                <td class="highlight">${valor}</td>
+                <td>${orixas[valor] || '—'}</td>
+            </tr>`;
+        }
+        html += `</tbody></table>`;
+
+        // 4. EXPLICAÇÕES DETALHADAS
+        html += `<div style="margin-top: 16px;">`;
+        for (let [ponto, valor] of Object.entries(pontos)) {
+            const orixa = orixas[valor] || 'Desconhecido';
+            const desc = descricoes[ponto] || '';
+            const ehEsquerda = (ponto === 'Esquerda');
+            const ehDireita = (ponto === 'Direita');
+            
+            // Determinar luz e sombra
+            let luzSombra = '';
+            if (ehEsquerda) {
+                luzSombra = `<br>🌑 <strong>Sombra:</strong> Você tende a ter mais dificuldade em lidar com a energia de ${orixa}, pois essa é uma força que precisa ser compreendida e superada nesta encarnação. Desafios relacionados a essa vibração serão recorrentes até que você aprenda a transmutá-los.`;
+            } else if (ehDireita) {
+                luzSombra = `<br>🌞 <strong>Luz:</strong> Você possui facilidade natural com a energia de ${orixa}. Essa é uma força que flui espontaneamente em sua vida, trazendo dons e talentos que podem ser desenvolvidos com maior facilidade.`;
+            } else {
+                luzSombra = `<br>⚖️ <strong>Equilíbrio:</strong> A energia de ${orixa} atua de forma equilibrada em sua vida, oferecendo tanto desafios construtivos quanto dons naturais, dependendo do seu momento espiritual.`;
+            }
+
+            html += `<div class="ponto-explicacao">
+                <strong>${ponto} (${valor} — ${orixa})</strong><br>
+                <span style="font-size: 0.85rem; color: #c9b89a;">${desc}</span>
+                ${luzSombra}
+            </div>`;
+        }
+        html += `</div>`;
+
+        // 5. MENSAGEM FINAL
+        html += `<div style="margin-top: 16px; text-align: center; font-size: 0.8rem; opacity: 0.7; border-top: 1px solid #d4af3722; padding-top: 14px;">
+            <i class="fas fa-feather-alt gold"></i> 
+            Que a sabedoria ancestral ilumine seu caminho.
+            <i class="fas fa-water" style="color: #3b9bc0; margin-left: 8px;"></i>
+        </div>`;
+
+        resultado.innerHTML = html;
+        resultado.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ============================================================
+    // NUMEROLOGIA (simples)
+    // ============================================================
     function calcularNumerologia() {
         const input = document.getElementById('numerologiaInput');
         const nome = input.value.trim().toUpperCase();
@@ -578,7 +752,9 @@
         `;
     }
 
-    // MAPA ASTRAL
+    // ============================================================
+    // MAPA ASTRAL (simulação)
+    // ============================================================
     function gerarMapaAstral() {
         const nome = document.getElementById('mapaNome').value.trim() || 'Anônimo';
         const data = document.getElementById('mapaData').value;
@@ -626,16 +802,23 @@
         `;
     }
 
+    // ============================================================
     // EXEMPLOS INICIAIS
+    // ============================================================
     window.onload = function() {
-        document.getElementById('cabalaInput').value = 'Kelira';
-        calcularCabala();
-        document.getElementById('numerologiaInput').value = 'Ana Maria';
-        calcularNumerologia();
+        // Data de exemplo para a cabala
         const hoje = new Date();
         const ano = hoje.getFullYear();
         const mes = String(hoje.getMonth() + 1).padStart(2, '0');
         const dia = String(hoje.getDate()).padStart(2, '0');
+        document.getElementById('cabalaData').value = `${ano-20}-${mes}-${dia}`;
+        document.getElementById('cabalaNome').value = 'Maria Silva';
+        
+        // Numerologia
+        document.getElementById('numerologiaInput').value = 'Ana Maria';
+        calcularNumerologia();
+        
+        // Mapa Astral
         document.getElementById('mapaData').value = `${ano-20}-${mes}-${dia}`;
         document.getElementById('mapaNome').value = 'Luna';
         gerarMapaAstral();
