@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kelira - Espiritualidade, Ocultismo e Oráculos</title>
+    <!-- Google Fonts para uma fonte mística -->
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0a0a;
+            background-image: radial-gradient(circle at 20% 30%, #1a1410 0%, #0b0a0a 80%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Cinzel', 'Times New Roman', serif;
+            padding: 20px;
+        }
+
+        /* Container principal - todo arredondado */
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(10, 8, 8, 0.85);
+            backdrop-filter: blur(6px);
+            border-radius: 60px 60px 40px 40px;
+            padding: 30px 30px 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 0 2px #b8860b55, 0 0 30px #b8860b33;
+            border: 1px solid #d4af37;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Elemento ÁGUA: ondas animadas no fundo */
+        .water-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.10;
+            border-radius: inherit;
+            overflow: hidden;
+        }
+        .water-bg::before,
+        .water-bg::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle at 30% 40%, rgba(0, 180, 255, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(0, 200, 255, 0.10) 0%, transparent 50%);
+            border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
+            animation: onda 12s infinite alternate ease-in-out;
+        }
+        .water-bg::after {
+            background: radial-gradient(circle at 60% 30%, rgba(0, 150, 255, 0.12) 0%, transparent 55%);
+            animation: onda 16s infinite alternate-reverse ease-in-out;
+            opacity: 0.7;
+        }
+        @keyframes onda {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            100% { transform: translate(-10%, -5%) rotate(6deg) scale(1.1); }
+        }
+
+        /* Conteúdo fica acima do fundo */
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* TÍTULO PRINCIPAL - fonte mística */
+        .main-title {
+            font-family: 'MedievalSharp', 'Cinzel', cursive;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #d4af37;
+            text-shadow: 0 0 20px #b8860b88, 0 0 60px #b8860b44, 0 4px 8px rgba(0,0,0,0.8);
+            text-align: center;
+            letter-spacing: 6px;
+            margin-bottom: 6px;
+            word-spacing: 10px;
+        }
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-weight: 400;
+            color: #c9a84c;
+            text-align: center;
+            font-size: 1.1rem;
+            letter-spacing: 8px;
+            opacity: 0.8;
+            border-top: 1px solid #d4af3744;
+            border-bottom: 1px solid #d4af3744;
+            display: inline-block;
+            padding: 8px 30px;
+            margin: 0 auto 25px;
+            backdrop-filter: blur(4px);
+            border-radius: 60px;
+        }
+
+        /* NAVEGAÇÃO - estilo guias fixadas do navegador */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            border-bottom: 3px solid #b8860b55;
+            padding-bottom: 0;
+            margin-bottom: 30px;
+            border-radius: 40px 40px 0 0;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 8px 0 8px;
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 14px 28px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #b8a07c;
+            border-radius: 40px 40px 0 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
+            position: relative;
+            background: rgba(20, 16, 12, 0.5);
+            backdrop-filter: blur(2px);
+            border: 1px solid transparent;
+            border-bottom: none;
+            margin-bottom: -1px;
+        }
+        .tab-btn i {
+            margin-right: 10px;
+            color: #d4af37;
+        }
+        .tab-btn:hover {
+            background: #d4af3722;
+            color: #e8d5a3;
+            transform: translateY(-2px);
+        }
+        .tab-btn.active {
+            background: #0b0a0a;
+            color: #f5e5b0;
+            border-color: #d4af37;
+            border-bottom-color: #0b0a0a;
+            box-shadow: 0 -6px 20px #b8860b33, inset 0 -4px 0 #d4af37;
+            border-radius: 40px 40px 0 0;
+        }
+        .tab-btn.active i {
+            color: #f5d742;
+            text-shadow: 0 0 16px #d4af37;
+        }
+
+        /* CONTEÚDO DAS ABAS */
+        .tab-content {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            border-radius: 40px 40px 30px 30px;
+            padding: 30px 30px 40px;
+            border: 1px solid #d4af3766;
+            box-shadow: inset 0 0 60px #00000088, 0 10px 30px #000000aa;
+            min-height: 380px;
+        }
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0.2; transform: translateY(12px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ESTILOS GERAIS DE TEXTO E INPUTS - sempre arredondados */
+        h2 {
+            font-family: 'MedievalSharp', 'Cinzel', cursive;
+            color: #f5e5b0;
+            font-size: 2.4rem;
+            text-shadow: 0 0 12px #b8860b66;
+            border-left: 6px solid #d4af37;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            border-radius: 0 40px 40px 0;
+        }
+        p, label, .info-text {
+            color: #ddd0bc;
+            font-family: 'Cinzel', serif;
+            font-weight: 300;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+        }
+        .info-text i {
+            color: #d4af37;
+            margin-right: 8px;
+        }
+
+        /* Inputs e botões ultra arredondados */
+        input, select, textarea {
+            width: 100%;
+            max-width: 400px;
+            padding: 16px 22px;
+            margin: 10px 0 16px;
+            background: #1a1614;
+            border: 2px solid #b8860b88;
+            border-radius: 60px !important;
+            color: #f5e5b0;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+            box-shadow: inset 0 4px 12px #00000055;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #d4af37;
+            box-shadow: 0 0 30px #b8860b44, inset 0 4px 12px #00000088;
+            background: #221d18;
+        }
+        input::placeholder {
+            color: #b8a07c88;
+            font-weight: 300;
+        }
+
+        .btn {
+            background: linear-gradient(145deg, #1f1a15, #0d0b0a);
+            border: 2px solid #d4af37;
+            padding: 14px 38px;
+            border-radius: 60px !important;
+            color: #f5e5b0;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 6px 0 #6b4f1a, 0 10px 30px #00000077;
+            letter-spacing: 2px;
+            margin: 8px 6px 8px 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .btn i {
+            color: #d4af37;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(145deg, #2f261e, #1a1410);
+            box-shadow: 0 8px 0 #8b691f, 0 16px 40px #00000099;
+            border-color: #f5d742;
+        }
+        .btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #6b4f1a;
+        }
+
+        .result-box {
+            background: #0e0c0a;
+            border: 1px solid #d4af3755;
+            border-radius: 60px !important;
+            padding: 24px 30px;
+            margin: 24px 0 10px;
+            box-shadow: inset 0 0 30px #00000077, 0 8px 20px #000000aa;
+            color: #f0e0c0;
+            font-size: 1.2rem;
+            font-family: 'Cinzel', serif;
+            word-break: break-word;
+        }
+        .result-box i {
+            color: #d4af37;
+            margin-right: 12px;
+        }
+
+        /* Card de informações (guia inicial) */
+        .info-card {
+            background: rgba(0,0,0,0.3);
+            border-radius: 60px !important;
+            padding: 30px;
+            border: 1px dashed #d4af3766;
+            text-align: center;
+            backdrop-filter: blur(2px);
+        }
+        .info-card i {
+            font-size: 3rem;
+            color: #d4af37;
+            opacity: 0.5;
+            margin-bottom: 16px;
+        }
+
+        /* Ajustes mobile */
+        @media (max-width: 700px) {
+            .container { padding: 20px 15px; border-radius: 40px; }
+            .main-title { font-size: 2.8rem; letter-spacing: 3px; }
+            .tab-btn { padding: 12px 18px; font-size: 0.9rem; }
+            .tab-btn i { margin-right: 6px; }
+            .tab-content { padding: 20px 16px; border-radius: 30px; }
+            h2 { font-size: 2rem; padding-left: 14px; }
+            input { max-width: 100%; }
+            .btn { padding: 12px 24px; font-size: 1rem; }
+        }
+        @media (max-width: 480px) {
+            .main-title { font-size: 2.2rem; }
+            .subtitle { font-size: 0.8rem; letter-spacing: 4px; padding: 6px 16px; }
+            .tab-btn { padding: 10px 12px; font-size: 0.75rem; }
+            .tab-btn i { margin-right: 4px; }
+        }
+
+        /* ícones de água espalhados */
+        .water-icon {
+            color: #2a8cbb44;
+            font-size: 1.4rem;
+            margin: 0 6px;
+        }
+        .gold {
+            color: #d4af37;
+        }
+
+        /* Pequenos detalhes aquáticos */
+        .wave-divider {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 10px 0 18px;
+            opacity: 0.2;
+            font-size: 1.6rem;
+            color: #4aa3d0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Fundo água -->
+    <div class="water-bg"></div>
+
+    <div class="content">
+        <!-- Título -->
+        <div style="text-align: center;">
+            <h1 class="main-title">✦ Kelira ✦</h1>
+            <div class="subtitle"><i class="fas fa-water water-icon"></i> espírito · mistério · oráculo <i class="fas fa-water water-icon"></i></div>
+        </div>
+
+        <!-- Navegação tipo guias fixadas -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="inicio"><i class="fas fa-home"></i> Início</button>
+            <button class="tab-btn" data-tab="cabala"><i class="fas fa-tree"></i> Cabala</button>
+            <button class="tab-btn" data-tab="numerologia"><i class="fas fa-calculator"></i> Numerologia</button>
+            <button class="tab-btn" data-tab="mapa"><i class="fas fa-globe-americas"></i> Mapa Astral</button>
+        </div>
+
+        <!-- Conteúdo das abas -->
+        <div class="tab-content">
+            <!-- INÍCIO -->
+            <div id="inicio" class="tab-pane active">
+                <h2><i class="fas fa-feather-alt gold"></i> Bem-vindo à Kelira</h2>
+                <div class="info-card">
+                    <i class="fas fa-moon"></i>
+                    <p style="font-size: 1.2rem; color: #e8d5b0;">
+                        <i class="fas fa-water" style="color: #4aa3d0;"></i>
+                        Espaço sagrado para explorar os mistérios do oculto.
+                    </p>
+                    <div class="wave-divider">
+                        <i class="fas fa-water"></i><i class="fas fa-water"></i><i class="fas fa-water"></i>
+                    </div>
+                    <p class="info-text">
+                        <i class="fas fa-circle" style="color: #d4af37; font-size: 0.5rem; vertical-align: middle;"></i>
+                        Informações básicas em breve...
+                    </p>
+                    <p class="info-text" style="margin-top: 18px; opacity: 0.6;">
+                        <i class="fas fa-crown gold"></i> 
+                        A sabedoria ancestral encontra a tecnologia.
+                    </p>
+                    <div style="margin-top: 24px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                        <span style="background: #1a1410; padding: 10px 28px; border-radius: 60px; border: 1px solid #d4af3733;">
+                            <i class="fas fa-water" style="color: #2a8cbb;"></i> Água
+                        </span>
+                        <span style="background: #1a1410; padding: 10px 28px; border-radius: 60px; border: 1px solid #d4af3733;">
+                            <i class="fas fa-star gold"></i> Ouro
+                        </span>
+                        <span style="background: #1a1410; padding: 10px 28px; border-radius: 60px; border: 1px solid #d4af3733;">
+                            <i class="fas fa-circle" style="color: #111; text-shadow: 0 0 8px #d4af37;"></i> Preto
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CABALA -->
+            <div id="cabala" class="tab-pane">
+                <h2><i class="fas fa-tree gold"></i> Cálculo da Cabala</h2>
+                <p><i class="fas fa-water" style="color: #3b9bc0;"></i> Insira uma palavra ou nome para calcular sua correspondência cabalística (soma das letras).</p>
+                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
+                    <input type="text" id="cabalaInput" placeholder="Ex: Kelira" style="flex: 1; min-width: 200px;" />
+                    <button class="btn" onclick="calcularCabala()"><i class="fas fa-crown"></i> Calcular</button>
+                </div>
+                <div id="cabalaResultado" class="result-box">
+                    <i class="fas fa-water"></i> Aguardando palavra...
+                </div>
+                <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 6px;"><i class="fas fa-info-circle"></i> Soma simples dos valores das letras (A=1, B=2, ... Z=26).</p>
+            </div>
+
+            <!-- NUMEROLOGIA -->
+            <div id="numerologia" class="tab-pane">
+                <h2><i class="fas fa-calculator gold"></i> Numerologia</h2>
+                <p><i class="fas fa-water" style="color: #3b9bc0;"></i> Digite seu nome completo para descobrir seu Número da Alma.</p>
+                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
+                    <input type="text" id="numerologiaInput" placeholder="Seu nome completo" style="flex: 1; min-width: 200px;" />
+                    <button class="btn" onclick="calcularNumerologia()"><i class="fas fa-star"></i> Revelar</button>
+                </div>
+                <div id="numerologiaResultado" class="result-box">
+                    <i class="fas fa-water"></i> Digite seu nome...
+                </div>
+                <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 6px;"><i class="fas fa-info-circle"></i> Soma das vogais reduzida a um dígito (1 a 9).</p>
+            </div>
+
+            <!-- MAPA ASTRAL -->
+            <div id="mapa" class="tab-pane">
+                <h2><i class="fas fa-globe-americas gold"></i> Mapa Astral</h2>
+                <p><i class="fas fa-water" style="color: #3b9bc0;"></i> Insira seus dados para um resumo do seu mapa astral (simulação).</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end;">
+                    <div style="flex: 1; min-width: 160px;">
+                        <label style="color: #ddd0bc;">Nome</label>
+                        <input type="text" id="mapaNome" placeholder="Seu nome" />
+                    </div>
+                    <div style="flex: 1; min-width: 140px;">
+                        <label style="color: #ddd0bc;">Data de Nasc.</label>
+                        <input type="date" id="mapaData" />
+                    </div>
+                    <div style="flex: 1; min-width: 120px;">
+                        <label style="color: #ddd0bc;">Hora (opcional)</label>
+                        <input type="time" id="mapaHora" />
+                    </div>
+                    <button class="btn" onclick="gerarMapaAstral()"><i class="fas fa-moon"></i> Gerar</button>
+                </div>
+                <div id="mapaResultado" class="result-box">
+                    <i class="fas fa-water"></i> Aguardando dados...
+                </div>
+                <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 6px;"><i class="fas fa-info-circle"></i> Exemplo ilustrativo com base no signo solar.</p>
+            </div>
+        </div>
+        <!-- Fim tab-content -->
+
+        <!-- Rodapé com elemento água -->
+        <div style="margin-top: 30px; text-align: center; font-size: 0.9rem; color: #b8a07c66; border-top: 1px solid #d4af3722; padding-top: 20px; border-radius: 60px;">
+            <i class="fas fa-water" style="color: #2a6b8a;"></i>
+            <span style="font-family: 'MedievalSharp', cursive; letter-spacing: 3px; color: #b8a07caa;">Kelira · onde o místico encontra o digital</span>
+            <i class="fas fa-water" style="color: #2a6b8a;"></i>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --------------------- ABAS (estilo navegador) ---------------------
+    const tabs = document.querySelectorAll('.tab-btn');
+    const panes = document.querySelectorAll('.tab-pane');
+
+    tabs.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active de todos os botões
+            tabs.forEach(b => b.classList.remove('active'));
+            // Adiciona active no clicado
+            this.classList.add('active');
+
+            // Esconde todos os panes
+            panes.forEach(p => p.classList.remove('active'));
+            // Mostra o pane correspondente
+            const target = this.getAttribute('data-tab');
+            document.getElementById(target).classList.add('active');
+        });
+    });
+
+    // --------------------- CABALA ---------------------
+    function calcularCabala() {
+        const input = document.getElementById('cabalaInput');
+        const palavra = input.value.trim().toUpperCase();
+        const resultado = document.getElementById('cabalaResultado');
+
+        if (!palavra) {
+            resultado.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #d4af37;"></i> Por favor, insira uma palavra.';
+            return;
+        }
+
+        let soma = 0;
+        for (let i = 0; i < palavra.length; i++) {
+            const charCode = palavra.charCodeAt(i);
+            if (charCode >= 65 && charCode <= 90) {
+                soma += (charCode - 64);
+            }
+        }
+
+        if (soma === 0) {
+            resultado.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #d4af37;"></i> Apenas letras válidas (A-Z).';
+            return;
+        }
+
+        // Redução cabalística (soma dos dígitos até 1 dígito ou número mestre 11,22,33)
+        let reduzido = soma;
+        while (reduzido > 9 && reduzido !== 11 && reduzido !== 22 && reduzido !== 33) {
+            let temp = 0;
+            const str = reduzido.toString();
+            for (let i = 0; i < str.length; i++) {
+                temp += parseInt(str[i]);
+            }
+            reduzido = temp;
+        }
+
+        resultado.innerHTML = `
+            <i class="fas fa-tree gold"></i> 
+            <strong style="color: #f5e5b0;">${palavra}</strong> → 
+            Soma: <span style="color: #d4af37;">${soma}</span> · 
+            Número Cabalístico: <span style="color: #f5d742; font-size: 1.6rem; font-weight: bold;">${reduzido}</span>
+            <i class="fas fa-water" style="color: #3b9bc0; margin-left: 12px;"></i>
+        `;
+    }
+
+    // --------------------- NUMEROLOGIA (Alma) ---------------------
+    function calcularNumerologia() {
+        const input = document.getElementById('numerologiaInput');
+        const nome = input.value.trim().toUpperCase();
+        const resultado = document.getElementById('numerologiaResultado');
+
+        if (!nome) {
+            resultado.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #d4af37;"></i> Digite seu nome completo.';
+            return;
+        }
+
+        // Soma das vogais (A, E, I, O, U, Y - Y como vogal para fins místicos)
+        const vogais = ['A', 'E', 'I', 'O', 'U', 'Y'];
+        let somaVogais = 0;
+        for (let i = 0; i < nome.length; i++) {
+            const letra = nome[i];
+            if (vogais.includes(letra)) {
+                const valor = letra.charCodeAt(0) - 64;
+                somaVogais += valor;
+            }
+        }
+
+        if (somaVogais === 0) {
+            resultado.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #d4af37;"></i> Nenhuma vogal encontrada.';
+            return;
+        }
+
+        // Redução para 1 dígito (exceto números mestres 11,22,33)
+        let reduzido = somaVogais;
+        while (reduzido > 9 && reduzido !== 11 && reduzido !== 22 && reduzido !== 33) {
+            let temp = 0;
+            const str = reduzido.toString();
+            for (let i = 0; i < str.length; i++) {
+                temp += parseInt(str[i]);
+            }
+            reduzido = temp;
+        }
+
+        resultado.innerHTML = `
+            <i class="fas fa-calculator gold"></i>
+            <strong style="color: #f5e5b0;">${nome}</strong> · 
+            Soma das vogais: <span style="color: #d4af37;">${somaVogais}</span> · 
+            Número da Alma: <span style="color: #f5d742; font-size: 1.6rem; font-weight: bold;">${reduzido}</span>
+            <i class="fas fa-water" style="color: #3b9bc0; margin-left: 12px;"></i>
+        `;
+    }
+
+    // --------------------- MAPA ASTRAL (simulação) ---------------------
+    function gerarMapaAstral() {
+        const nome = document.getElementById('mapaNome').value.trim() || 'Anônimo';
+        const data = document.getElementById('mapaData').value;
+        const hora = document.getElementById('mapaHora').value || '12:00';
+        const resultado = document.getElementById('mapaResultado');
+
+        if (!data) {
+            resultado.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #d4af37;"></i> Por favor, selecione sua data de nascimento.';
+            return;
+        }
+
+        // Determina signo solar (simplificado)
+        const partes = data.split('-');
+        const mes = parseInt(partes[1]);
+        const dia = parseInt(partes[2]);
+        let signo = 'Desconhecido';
+        let elemento = 'Água';
+
+        if ((mes === 3 && dia >= 21) || (mes === 4 && dia <= 19)) { signo = 'Áries'; elemento = 'Fogo'; }
+        else if ((mes === 4 && dia >= 20) || (mes === 5 && dia <= 20)) { signo = 'Touro'; elemento = 'Terra'; }
+        else if ((mes === 5 && dia >= 21) || (mes === 6 && dia <= 20)) { signo = 'Gêmeos'; elemento = 'Ar'; }
+        else if ((mes === 6 && dia >= 21) || (mes === 7 && dia <= 22)) { signo = 'Câncer'; elemento = 'Água'; }
+        else if ((mes === 7 && dia >= 23) || (mes === 8 && dia <= 22)) { signo = 'Leão'; elemento = 'Fogo'; }
+        else if ((mes === 8 && dia >= 23) || (mes === 9 && dia <= 22)) { signo = 'Virgem'; elemento = 'Terra'; }
+        else if ((mes === 9 && dia >= 23) || (mes === 10 && dia <= 22)) { signo = 'Libra'; elemento = 'Ar'; }
+        else if ((mes === 10 && dia >= 23) || (mes === 11 && dia <= 21)) { signo = 'Escorpião'; elemento = 'Água'; }
+        else if ((mes === 11 && dia >= 22) || (mes === 12 && dia <= 21)) { signo = 'Sagitário'; elemento = 'Fogo'; }
+        else if ((mes === 12 && dia >= 22) || (mes === 1 && dia <= 19)) { signo = 'Capricórnio'; elemento = 'Terra'; }
+        else if ((mes === 1 && dia >= 20) || (mes === 2 && dia <= 18)) { signo = 'Aquário'; elemento = 'Ar'; }
+        else if ((mes === 2 && dia >= 19) || (mes === 3 && dia <= 20)) { signo = 'Peixes'; elemento = 'Água'; }
+
+        // Resumo
+        resultado.innerHTML = `
+            <i class="fas fa-globe-americas gold"></i>
+            <strong style="color: #f5e5b0;">${nome}</strong> · 
+            Nascimento: ${dia}/${mes}/${partes[0]} às ${hora} <br/>
+            <span style="display: inline-block; margin-top: 10px; background: #1a1410; padding: 8px 24px; border-radius: 60px; border: 1px solid #d4af3744;">
+                <i class="fas fa-sun" style="color: #d4af37;"></i> 
+                Signo Solar: <strong style="color: #f5d742;">${signo}</strong> · 
+                Elemento: <strong style="color: #4aa3d0;">${elemento}</strong>
+                <i class="fas fa-water" style="color: #3b9bc0; margin-left: 10px;"></i>
+            </span>
+            <br/>
+            <span style="font-size: 0.9rem; opacity: 0.7; display: block; margin-top: 12px;">
+                <i class="fas fa-feather-alt gold"></i> Mapa astral completo em desenvolvimento.
+            </span>
+        `;
+    }
+
+    // Executa cálculos iniciais com exemplos (opcional)
+    window.onload = function() {
+        // Preencher com exemplos para demonstração
+        document.getElementById('cabalaInput').value = 'Kelira';
+        calcularCabala();
+        document.getElementById('numerologiaInput').value = 'Ana Maria';
+        calcularNumerologia();
+        // Data exemplo
+        const hoje = new Date();
+        const ano = hoje.getFullYear();
+        const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+        const dia = String(hoje.getDate()).padStart(2, '0');
+        document.getElementById('mapaData').value = `${ano-20}-${mes}-${dia}`;
+        document.getElementById('mapaNome').value = 'Luna';
+        gerarMapaAstral();
+    };
+</script>
+
+</body>
+</html>
