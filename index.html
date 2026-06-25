@@ -311,20 +311,6 @@
             box-shadow: inset 0 4px 15px #00000066, 0 0 10px #6b4f1a33;
         }
 
-        .result-box {
-            background: #0a0806;
-            border: 1px solid #6b4f1a55;
-            border-radius: 40px !important;
-            padding: 20px 26px;
-            margin: 16px 0 8px;
-            box-shadow: inset 0 0 25px #00000077, 0 8px 20px #000000aa;
-            color: #ffffff;
-            font-size: 1.1rem;
-            font-family: 'Times New Roman', Times, serif;
-            word-break: break-word;
-            line-height: 1.8;
-        }
-
         .info-card {
             background: rgba(0,0,0,0.3);
             border-radius: 40px !important;
@@ -487,7 +473,6 @@
             h2 { font-size: 1.8rem; padding-left: 12px; }
             input { max-width: 100%; }
             .btn { padding: 10px 20px; font-size: 0.95rem; }
-            .result-box { padding: 14px 18px; font-size: 1rem; }
             .cabala-tabela { font-size: 0.9rem; }
             .cabala-tabela th, .cabala-tabela td { padding: 8px 10px; }
             p, label, .info-text { font-size: 1rem; }
@@ -563,8 +548,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <div id="cabalaResultado" class="result-box"></div>
             </div>
         </div>
 
@@ -632,10 +615,24 @@
     function calcularCabalaCompleta() {
         const nome = document.getElementById('cabalaNome').value.trim();
         const data = document.getElementById('cabalaData').value;
-        const resultado = document.getElementById('cabalaResultado');
+        
+        // Criar elemento para exibir o resultado
+        const resultadoDiv = document.createElement('div');
+        resultadoDiv.className = 'result-box';
+        resultadoDiv.id = 'cabalaResultado';
+
+        // Remover resultado anterior se existir
+        const resultadoAnterior = document.getElementById('cabalaResultado');
+        if (resultadoAnterior) {
+            resultadoAnterior.remove();
+        }
+
+        // Inserir o novo resultado após o field-group
+        const fieldGroup = document.querySelector('.field-group');
+        fieldGroup.parentNode.insertBefore(resultadoDiv, fieldGroup.nextSibling);
 
         if (!nome || !data) {
-            resultado.innerHTML = 'Preencha nome completo e data de nascimento.';
+            resultadoDiv.innerHTML = 'Preencha nome completo e data de nascimento.';
             return;
         }
 
@@ -734,8 +731,8 @@
         }
         html += `</div>`;
 
-        resultado.innerHTML = html;
-        resultado.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        resultadoDiv.innerHTML = html;
+        resultadoDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 </script>
 
