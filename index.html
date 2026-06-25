@@ -229,6 +229,7 @@
             line-height: 1.8;
             font-size: 1rem;
             letter-spacing: 0.3px;
+            text-align: justify;
         }
 
         input, select, textarea {
@@ -303,6 +304,9 @@
             word-break: break-word;
             line-height: 1.8;
         }
+        .result-box p {
+            text-align: justify;
+        }
 
         .info-card {
             background: rgba(0,0,0,0.3);
@@ -318,6 +322,9 @@
             opacity: 0.3;
             margin-bottom: 12px;
         }
+        .info-card p {
+            text-align: center;
+        }
 
         .wave-divider {
             display: flex;
@@ -332,13 +339,15 @@
         .footer {
             margin-top: 22px;
             text-align: center;
-            font-size: 0.75rem;
-            color: #6b5a3a66;
+            font-size: 0.85rem;
+            color: #b8943a;
             border-top: 1px solid #6b4f1a33;
             padding-top: 16px;
             border-radius: 30px;
             font-family: 'Inter', 'Playfair Display', serif;
             letter-spacing: 2px;
+            opacity: 0.9;
+            text-shadow: 0 0 10px #6b4f1a44;
         }
 
         .field-group {
@@ -346,6 +355,7 @@
             flex-wrap: wrap;
             gap: 14px;
             align-items: flex-end;
+            margin-top: 10px;
         }
         .field-group > div {
             flex: 1;
@@ -362,6 +372,10 @@
             margin-bottom: 2px;
             letter-spacing: 1.5px;
             font-weight: 400;
+            text-align: left;
+        }
+        label:first-letter {
+            text-transform: uppercase;
         }
 
         .cabala-tabela {
@@ -380,11 +394,13 @@
             border-bottom: 2px solid #6b4f1a55;
             font-weight: 600;
             letter-spacing: 1.5px;
+            text-transform: capitalize;
         }
         .cabala-tabela td {
             padding: 10px 14px;
             border-bottom: 1px solid #6b4f1a33;
             color: #d4c8b0;
+            text-align: left;
         }
         .cabala-tabela tr:last-child td {
             border-bottom: none;
@@ -408,6 +424,7 @@
             color: #c0b098;
             line-height: 1.8;
             font-weight: 300;
+            text-align: justify;
         }
 
         .ponto-explicacao {
@@ -416,20 +433,25 @@
             background: #0a080688;
             border-radius: 25px;
             border: 1px solid #6b4f1a33;
+            text-align: justify;
         }
         .ponto-explicacao strong {
             color: #d4af37;
             font-weight: 600;
         }
 
-        /* Primeira letra em caixa alta */
-        p:first-letter,
-        .disclaimer:first-letter,
-        .ponto-explicacao:first-letter,
-        .info-text:first-letter,
-        label:first-letter,
-        .result-box:first-letter {
-            text-transform: uppercase;
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .btn-group .btn {
+            margin: 0;
+            white-space: nowrap;
+        }
+        .btn-group input {
+            max-width: 200px;
         }
 
         @media (max-width: 700px) {
@@ -444,6 +466,7 @@
             .cabala-tabela { font-size: 0.8rem; }
             .cabala-tabela th, .cabala-tabela td { padding: 8px 10px; }
             p, label, .info-text { font-size: 0.9rem; }
+            .btn-group input { max-width: 100%; }
         }
         @media (max-width: 480px) {
             .main-title { font-size: 2rem; letter-spacing: 2px; }
@@ -453,6 +476,8 @@
             .info-card i { font-size: 1.8rem; }
             .disclaimer { font-size: 0.8rem; padding: 12px 16px; }
             .ponto-explicacao { padding: 10px 14px; font-size: 0.85rem; }
+            .btn-group { flex-direction: column; align-items: stretch; }
+            .btn-group .btn { justify-content: center; }
         }
     </style>
 </head>
@@ -478,16 +503,16 @@
                 <h2>Bem-vindo</h2>
                 <div class="info-card">
                     <i class="fas fa-moon"></i>
-                    <p style="font-size: 1.1rem; color: #d4c8b0;">
+                    <p style="font-size: 1.1rem; color: #d4c8b0; text-align: center;">
                         Espaço sagrado para explorar os mistérios do oculto.
                     </p>
                     <div class="wave-divider">
                         <i class="fas fa-water"></i><i class="fas fa-water"></i><i class="fas fa-water"></i>
                     </div>
-                    <p class="info-text">
+                    <p class="info-text" style="text-align: center;">
                         Informações básicas em breve...
                     </p>
-                    <p class="info-text" style="margin-top: 14px; opacity: 0.5; font-size: 0.85rem;">
+                    <p class="info-text" style="margin-top: 14px; opacity: 0.5; font-size: 0.85rem; text-align: center;">
                         A sabedoria ancestral encontra a tecnologia.
                     </p>
                 </div>
@@ -501,18 +526,18 @@
                 <div class="field-group">
                     <div>
                         <label>Nome completo</label>
-                        <input type="text" id="cabalaNome" placeholder="seu nome completo" />
+                        <input type="text" id="cabalaNome" placeholder="seu nome completo" value="" />
                     </div>
                     <div>
                         <label>Data de nascimento</label>
-                        <input type="date" id="cabalaData" />
+                        <div class="btn-group">
+                            <input type="date" id="cabalaData" value="" />
+                            <button class="btn" onclick="calcularCabalaCompleta()">Calcular</button>
+                        </div>
                     </div>
                 </div>
-                <button class="btn" onclick="calcularCabalaCompleta()">Calcular cabala</button>
                 
-                <div id="cabalaResultado" class="result-box">
-                    Aguardando seus dados...
-                </div>
+                <div id="cabalaResultado" class="result-box"></div>
             </div>
         </div>
 
@@ -567,13 +592,30 @@
         return num;
     }
 
+    function capitalizarTexto(texto) {
+        // Capitaliza primeira letra de cada palavra, mas mantém nomes próprios
+        return texto.replace(/\w\S*/g, function(palavra) {
+            // Lista de palavras que não devem ser capitalizadas (exceto nomes próprios)
+            const minusculas = ['de', 'da', 'do', 'das', 'dos', 'e', 'ou', 'para', 'por', 'com', 'sem', 'sob', 'sobre'];
+            if (minusculas.includes(palavra.toLowerCase())) {
+                return palavra.toLowerCase();
+            }
+            return palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase();
+        });
+    }
+
+    function capitalizarPrimeiraLetra(texto) {
+        if (!texto) return texto;
+        return texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase();
+    }
+
     function calcularCabalaCompleta() {
         const nome = document.getElementById('cabalaNome').value.trim();
         const data = document.getElementById('cabalaData').value;
         const resultado = document.getElementById('cabalaResultado');
 
         if (!nome || !data) {
-            resultado.innerHTML = 'preencha nome completo e data de nascimento.';
+            resultado.innerHTML = 'Preencha nome completo e data de nascimento.';
             return;
         }
 
@@ -657,14 +699,15 @@
         </div>`;
 
         // 2. CABEÇALHO COM NOME E DATA
-        html += `<p style="font-size: 1.2rem; color: #d4c8b0; margin-bottom: 14px;">
-            <strong>${nome}</strong> · ${dia}/${mes}/${anoStr}
+        const nomeCapitalizado = capitalizarTexto(nome);
+        html += `<p style="font-size: 1.2rem; color: #d4c8b0; margin-bottom: 14px; text-align: left;">
+            <strong>${nomeCapitalizado}</strong> · ${dia}/${mes}/${anoStr}
         </p>`;
 
         // 3. TABELA RESUMO
         html += `<table class="cabala-tabela">
             <thead>
-                <tr><th>ponto</th><th>número</th><th>orixá</th></tr>
+                <tr><th>Ponto</th><th>Número</th><th>Orixá</th></tr>
             </thead>
             <tbody>`;
         for (let [ponto, valor] of Object.entries(pontos)) {
@@ -681,46 +724,17 @@
         for (let [ponto, valor] of Object.entries(pontos)) {
             const orixa = orixas[valor] || 'desconhecido';
             const desc = descricoes[ponto] || '';
-            const ehEsquerda = (ponto === 'Esquerda');
-            const ehDireita = (ponto === 'Direita');
             
-            let luzSombra = '';
-            if (ehEsquerda) {
-                luzSombra = `<br>Sombra: Você tende a ter mais dificuldade em lidar com a energia de ${orixa}, pois essa é uma força que precisa ser compreendida e superada nesta encarnação. Desafios relacionados a essa vibração serão recorrentes até que você aprenda a transmutá-los.`;
-            } else if (ehDireita) {
-                luzSombra = `<br>Luz: Você possui facilidade natural com a energia de ${orixa}. Essa é uma força que flui espontaneamente em sua vida, trazendo dons e talentos que podem ser desenvolvidos com maior facilidade.`;
-            } else {
-                luzSombra = `<br>Equilíbrio: A energia de ${orixa} atua de forma equilibrada em sua vida, oferecendo tanto desafios construtivos quanto dons naturais, dependendo do seu momento espiritual.`;
-            }
-
             html += `<div class="ponto-explicacao">
                 <strong>${ponto} (${valor} — ${orixa})</strong><br>
                 <span style="font-size: 0.9rem; color: #c0b098;">${desc}</span>
-                ${luzSombra}
             </div>`;
         }
         html += `</div>`;
 
-        // 5. MENSAGEM FINAL
-        html += `<div style="margin-top: 18px; text-align: center; font-size: 0.85rem; opacity: 0.6; border-top: 1px solid #6b4f1a33; padding-top: 16px;">
-            Que a sabedoria ancestral ilumine seu caminho.
-        </div>`;
-
         resultado.innerHTML = html;
         resultado.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-
-    // ============================================================
-    // EXEMPLO INICIAL
-    // ============================================================
-    window.onload = function() {
-        const hoje = new Date();
-        const ano = hoje.getFullYear();
-        const mes = String(hoje.getMonth() + 1).padStart(2, '0');
-        const dia = String(hoje.getDate()).padStart(2, '0');
-        document.getElementById('cabalaData').value = `${ano-20}-${mes}-${dia}`;
-        document.getElementById('cabalaNome').value = 'Maria Silva';
-    };
 </script>
 
 </body>
