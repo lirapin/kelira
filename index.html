@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kelira - Espiritualidade, Ocultismo e Oráculos</title>
-    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
         * {
@@ -14,29 +14,36 @@
         }
 
         body {
-            background-color: #0b0a0a;
-            background-image: radial-gradient(circle at 20% 30%, #1a1410 0%, #0b0a0a 80%);
+            background-color: #0a0806;
+            background-image: 
+                radial-gradient(circle at 10% 20%, #1a1410 0%, #0a0806 70%),
+                repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(40,30,20,0.05) 40px, rgba(40,30,20,0.05) 41px);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Cinzel', 'Times New Roman', serif;
+            font-family: 'Cormorant Garamond', 'Times New Roman', serif;
             padding: 15px;
         }
 
         .container {
             max-width: 1000px;
             width: 100%;
-            background: rgba(10, 8, 8, 0.85);
-            backdrop-filter: blur(6px);
-            border-radius: 40px 40px 30px 30px;
-            padding: 20px 25px 30px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 0 0 2px #b8860b55, 0 0 25px #b8860b33;
-            border: 1px solid #d4af37;
+            background: rgba(10, 8, 6, 0.92);
+            backdrop-filter: blur(8px);
+            border-radius: 30px 30px 20px 20px;
+            padding: 25px 30px 35px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.95),
+                0 0 0 1px #6b4f1a88,
+                0 0 40px #6b4f1a33,
+                inset 0 0 80px rgba(0,0,0,0.5);
+            border: 1px solid #8b6f2a;
             position: relative;
             overflow: hidden;
         }
 
+        /* Elemento ÁGUA mais forte e soturno */
         .water-bg {
             position: absolute;
             top: 0;
@@ -45,7 +52,7 @@
             height: 100%;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.08;
+            opacity: 0.06;
             border-radius: inherit;
             overflow: hidden;
         }
@@ -57,19 +64,38 @@
             height: 200%;
             top: -50%;
             left: -50%;
-            background: radial-gradient(circle at 30% 40%, rgba(0, 180, 255, 0.15) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 80%, rgba(0, 200, 255, 0.10) 0%, transparent 50%);
-            border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
-            animation: onda 12s infinite alternate ease-in-out;
+            background: 
+                radial-gradient(circle at 25% 35%, rgba(30, 80, 120, 0.2) 0%, transparent 55%),
+                radial-gradient(circle at 75% 70%, rgba(20, 60, 100, 0.15) 0%, transparent 45%);
+            border-radius: 30% 70% 50% 50% / 50% 40% 60% 50%;
+            animation: ondaSombria 14s infinite alternate ease-in-out;
         }
         .water-bg::after {
-            background: radial-gradient(circle at 60% 30%, rgba(0, 150, 255, 0.12) 0%, transparent 55%);
-            animation: onda 16s infinite alternate-reverse ease-in-out;
-            opacity: 0.7;
+            background: radial-gradient(circle at 60% 30%, rgba(20, 70, 110, 0.15) 0%, transparent 50%);
+            animation: ondaSombria 18s infinite alternate-reverse ease-in-out;
+            opacity: 0.6;
         }
-        @keyframes onda {
+        @keyframes ondaSombria {
             0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-            100% { transform: translate(-10%, -5%) rotate(6deg) scale(1.1); }
+            100% { transform: translate(-8%, -6%) rotate(4deg) scale(1.15); }
+        }
+
+        /* Elemento RAÍZES - textura de fundo */
+        .roots-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.04;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(139, 111, 42, 0.03) 60px, rgba(139, 111, 42, 0.03) 61px),
+                repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(139, 111, 42, 0.02) 80px, rgba(139, 111, 42, 0.02) 81px),
+                radial-gradient(circle at 20% 50%, rgba(80, 60, 30, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 30%, rgba(80, 60, 30, 0.04) 0%, transparent 35%);
+            border-radius: inherit;
         }
 
         .content {
@@ -77,243 +103,276 @@
             z-index: 2;
         }
 
+        /* TÍTULO - sem estrelas, mais forte */
         .main-title {
-            font-family: 'MedievalSharp', 'Cinzel', cursive;
-            font-size: 2.8rem;
+            font-family: 'MedievalSharp', 'Cormorant Garamond', cursive;
+            font-size: 3.2rem;
             font-weight: 700;
-            color: #d4af37;
-            text-shadow: 0 0 15px #b8860b66, 0 0 40px #b8860b33, 0 2px 6px rgba(0,0,0,0.8);
+            color: #b8943a;
+            text-shadow: 
+                0 0 20px #6b4f1a66,
+                0 0 60px #6b4f1a22,
+                0 4px 12px rgba(0,0,0,0.9);
             text-align: center;
-            letter-spacing: 4px;
+            letter-spacing: 8px;
             margin-bottom: 2px;
-            word-spacing: 6px;
+            word-spacing: 10px;
+            text-transform: none;
         }
-        .subtitle {
-            font-family: 'Cinzel', serif;
-            font-weight: 400;
-            color: #c9a84c;
-            text-align: center;
-            font-size: 0.85rem;
-            letter-spacing: 6px;
-            opacity: 0.7;
-            border-top: 1px solid #d4af3744;
-            border-bottom: 1px solid #d4af3744;
-            display: inline-block;
-            padding: 4px 20px;
-            margin: 0 auto 18px;
-            backdrop-filter: blur(4px);
-            border-radius: 40px;
+        .main-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            margin: 6px auto 0;
+            background: linear-gradient(90deg, transparent, #8b6f2a, transparent);
         }
 
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            color: #9a8048;
+            text-align: center;
+            font-size: 0.9rem;
+            letter-spacing: 8px;
+            opacity: 0.6;
+            border-top: 1px solid #6b4f1a44;
+            border-bottom: 1px solid #6b4f1a44;
+            display: inline-block;
+            padding: 6px 25px;
+            margin: 0 auto 20px;
+            backdrop-filter: blur(4px);
+            border-radius: 30px;
+            text-transform: none;
+        }
+
+        /* ABAS - estilo mais forte */
         .tabs {
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
-            border-bottom: 2px solid #b8860b55;
+            gap: 4px;
+            border-bottom: 2px solid #6b4f1a66;
             padding-bottom: 0;
-            margin-bottom: 20px;
-            border-radius: 30px 30px 0 0;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 5px 5px 0 5px;
+            margin-bottom: 22px;
+            border-radius: 25px 25px 0 0;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 6px 6px 0 6px;
         }
         .tab-btn {
             background: transparent;
             border: none;
-            padding: 10px 22px;
-            font-family: 'Cinzel', serif;
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #b8a07c;
-            border-radius: 30px 30px 0 0;
+            padding: 12px 24px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #8a7a5a;
+            border-radius: 25px 25px 0 0;
             cursor: pointer;
             transition: all 0.3s ease;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             position: relative;
             background: rgba(20, 16, 12, 0.5);
             backdrop-filter: blur(2px);
             border: 1px solid transparent;
             border-bottom: none;
             margin-bottom: -1px;
+            text-transform: none;
         }
         .tab-btn:hover {
-            background: #d4af3722;
-            color: #e8d5a3;
-            transform: translateY(-1px);
+            background: #6b4f1a33;
+            color: #c9a84c;
+            transform: translateY(-2px);
         }
         .tab-btn.active {
-            background: #0b0a0a;
-            color: #f5e5b0;
-            border-color: #d4af37;
-            border-bottom-color: #0b0a0a;
-            box-shadow: 0 -4px 15px #b8860b33, inset 0 -3px 0 #d4af37;
-            border-radius: 30px 30px 0 0;
+            background: #0a0806;
+            color: #d4af37;
+            border-color: #8b6f2a;
+            border-bottom-color: #0a0806;
+            box-shadow: 
+                0 -4px 20px #6b4f1a44,
+                inset 0 -3px 0 #b8943a;
+            border-radius: 25px 25px 0 0;
         }
 
+        /* CONTEÚDO */
         .tab-content {
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(4px);
-            border-radius: 30px 30px 25px 25px;
-            padding: 20px 22px 30px;
-            border: 1px solid #d4af3766;
-            box-shadow: inset 0 0 40px #00000088, 0 8px 25px #000000aa;
+            border-radius: 25px 25px 20px 20px;
+            padding: 22px 25px 32px;
+            border: 1px solid #6b4f1a66;
+            box-shadow: 
+                inset 0 0 50px #00000088,
+                0 10px 30px #000000aa;
             min-height: 300px;
         }
         .tab-pane {
             display: none;
-            animation: fadeIn 0.35s ease;
+            animation: fadeIn 0.4s ease;
         }
         .tab-pane.active {
             display: block;
         }
         @keyframes fadeIn {
-            0% { opacity: 0.2; transform: translateY(8px); }
+            0% { opacity: 0.2; transform: translateY(10px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
+        /* TÍTULOS DAS SEÇÕES - sem maiúsculas */
         h2 {
-            font-family: 'MedievalSharp', 'Cinzel', cursive;
-            color: #f5e5b0;
-            font-size: 1.8rem;
-            text-shadow: 0 0 10px #b8860b55;
-            border-left: 4px solid #d4af37;
-            padding-left: 14px;
-            margin-bottom: 14px;
-            border-radius: 0 30px 30px 0;
-        }
-        p, label, .info-text {
-            color: #ddd0bc;
-            font-family: 'Cinzel', serif;
-            font-weight: 300;
-            line-height: 1.6;
-            font-size: 0.9rem;
-            letter-spacing: 0.3px;
+            font-family: 'MedievalSharp', 'Cormorant Garamond', cursive;
+            color: #d4af37;
+            font-size: 2rem;
+            text-shadow: 0 0 15px #6b4f1a55;
+            border-left: 4px solid #8b6f2a;
+            padding-left: 16px;
+            margin-bottom: 16px;
+            border-radius: 0 25px 25px 0;
+            font-weight: 400;
+            text-transform: none;
         }
 
+        p, label, .info-text, .disclaimer, .ponto-explicacao {
+            color: #c9b89a;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            line-height: 1.7;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            text-transform: none;
+        }
+
+        /* INPUTS E BOTÕES */
         input, select, textarea {
             width: 100%;
             max-width: 350px;
-            padding: 10px 18px;
-            margin: 6px 0 12px;
-            background: #1a1614;
-            border: 2px solid #b8860b88;
-            border-radius: 50px !important;
-            color: #f5e5b0;
-            font-family: 'Cinzel', serif;
-            font-size: 0.85rem;
+            padding: 12px 20px;
+            margin: 6px 0 14px;
+            background: #14100c;
+            border: 2px solid #6b4f1a88;
+            border-radius: 40px !important;
+            color: #d4c4a0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
             outline: none;
             transition: all 0.3s;
-            box-shadow: inset 0 3px 10px #00000055;
+            box-shadow: inset 0 4px 15px #00000066;
+            text-transform: none;
         }
         input:focus, select:focus, textarea:focus {
-            border-color: #d4af37;
-            box-shadow: 0 0 20px #b8860b44, inset 0 3px 10px #00000088;
-            background: #221d18;
+            border-color: #b8943a;
+            box-shadow: 0 0 30px #6b4f1a44, inset 0 4px 15px #00000088;
+            background: #1c1612;
         }
         input::placeholder {
-            color: #b8a07c88;
+            color: #8a7a5a88;
             font-weight: 300;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
 
         .btn {
-            background: linear-gradient(145deg, #1f1a15, #0d0b0a);
-            border: 2px solid #d4af37;
-            padding: 10px 28px;
-            border-radius: 50px !important;
-            color: #f5e5b0;
-            font-family: 'Cinzel', serif;
-            font-size: 0.9rem;
+            background: linear-gradient(145deg, #1a1410, #0a0806);
+            border: 2px solid #8b6f2a;
+            padding: 12px 32px;
+            border-radius: 40px !important;
+            color: #d4af37;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.25s;
-            box-shadow: 0 4px 0 #6b4f1a, 0 8px 25px #00000077;
-            letter-spacing: 1.5px;
+            box-shadow: 0 5px 0 #4a3518, 0 10px 30px #00000077;
+            letter-spacing: 2px;
             margin: 4px 4px 4px 0;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            text-transform: none;
         }
         .btn i {
-            color: #d4af37;
+            color: #b8943a;
             font-size: 0.9rem;
         }
         .btn:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(145deg, #2f261e, #1a1410);
-            box-shadow: 0 6px 0 #8b691f, 0 12px 30px #00000099;
-            border-color: #f5d742;
+            transform: translateY(-3px);
+            background: linear-gradient(145deg, #2a1f18, #14100c);
+            box-shadow: 0 7px 0 #5a4020, 0 15px 40px #00000099;
+            border-color: #d4af37;
         }
         .btn:active {
-            transform: translateY(3px);
-            box-shadow: 0 2px 0 #6b4f1a;
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #4a3518;
         }
 
         .result-box {
-            background: #0e0c0a;
-            border: 1px solid #d4af3755;
-            border-radius: 50px !important;
-            padding: 16px 24px;
+            background: #0a0806;
+            border: 1px solid #6b4f1a55;
+            border-radius: 40px !important;
+            padding: 20px 26px;
             margin: 16px 0 8px;
-            box-shadow: inset 0 0 20px #00000077, 0 6px 15px #000000aa;
-            color: #f0e0c0;
-            font-size: 0.95rem;
-            font-family: 'Cinzel', serif;
+            box-shadow: inset 0 0 25px #00000077, 0 8px 20px #000000aa;
+            color: #d4c4a0;
+            font-size: 1rem;
+            font-family: 'Cormorant Garamond', serif;
             word-break: break-word;
             line-height: 1.8;
         }
         .result-box i {
-            color: #d4af37;
+            color: #b8943a;
             margin-right: 10px;
         }
 
         .info-card {
             background: rgba(0,0,0,0.3);
-            border-radius: 50px !important;
-            padding: 20px 25px;
-            border: 1px dashed #d4af3766;
+            border-radius: 40px !important;
+            padding: 24px 28px;
+            border: 1px dashed #6b4f1a66;
             text-align: center;
             backdrop-filter: blur(2px);
         }
         .info-card i {
-            font-size: 2.2rem;
-            color: #d4af37;
-            opacity: 0.4;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            color: #b8943a;
+            opacity: 0.3;
+            margin-bottom: 12px;
         }
 
         .wave-divider {
             display: flex;
             justify-content: center;
-            gap: 8px;
-            margin: 6px 0 12px;
-            opacity: 0.15;
-            font-size: 1.2rem;
-            color: #4aa3d0;
+            gap: 10px;
+            margin: 8px 0 14px;
+            opacity: 0.12;
+            font-size: 1.3rem;
+            color: #3a7a9a;
         }
 
         .water-icon {
-            color: #2a8cbb44;
+            color: #2a6a8a44;
             font-size: 1rem;
             margin: 0 4px;
         }
         .gold {
-            color: #d4af37;
+            color: #b8943a;
         }
 
         .footer {
-            margin-top: 20px;
+            margin-top: 22px;
             text-align: center;
-            font-size: 0.7rem;
-            color: #b8a07c66;
-            border-top: 1px solid #d4af3722;
-            padding-top: 14px;
-            border-radius: 40px;
+            font-size: 0.75rem;
+            color: #6b5a3a66;
+            border-top: 1px solid #6b4f1a33;
+            padding-top: 16px;
+            border-radius: 30px;
+            font-family: 'Cormorant Garamond', serif;
+            text-transform: none;
+            letter-spacing: 2px;
         }
 
         .field-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 14px;
             align-items: flex-end;
         }
         .field-group > div {
@@ -326,97 +385,104 @@
 
         label {
             display: block;
-            font-size: 0.75rem;
-            color: #b8a07c;
+            font-size: 0.8rem;
+            color: #8a7a5a;
             margin-bottom: 2px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            text-transform: none;
         }
 
+        /* CABALA - Tabela mais sóbria */
         .cabala-tabela {
             width: 100%;
             border-collapse: collapse;
-            margin: 12px 0;
-            border-radius: 30px;
+            margin: 14px 0;
+            border-radius: 25px;
             overflow: hidden;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
         .cabala-tabela th {
-            background: #1a1410;
-            color: #d4af37;
-            padding: 8px 12px;
+            background: #14100c;
+            color: #b8943a;
+            padding: 10px 14px;
             text-align: left;
-            border-bottom: 2px solid #d4af3744;
+            border-bottom: 2px solid #6b4f1a55;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            text-transform: none;
         }
         .cabala-tabela td {
-            padding: 8px 12px;
-            border-bottom: 1px solid #d4af3722;
-            color: #ddd0bc;
+            padding: 10px 14px;
+            border-bottom: 1px solid #6b4f1a33;
+            color: #c9b89a;
         }
         .cabala-tabela tr:last-child td {
             border-bottom: none;
         }
         .cabala-tabela tr:hover td {
-            background: #1a141066;
+            background: #14100c66;
         }
         .cabala-tabela .highlight {
-            color: #f5d742;
+            color: #d4af37;
             font-weight: 700;
         }
 
         .disclaimer {
-            background: #1a141066;
-            border-left: 4px solid #d4af37;
-            padding: 14px 20px;
-            border-radius: 30px;
-            margin-bottom: 18px;
+            background: #14100c66;
+            border-left: 4px solid #8b6f2a;
+            padding: 16px 22px;
+            border-radius: 25px;
+            margin-bottom: 20px;
             font-style: italic;
-            font-size: 0.85rem;
-            color: #c9b89a;
-            line-height: 1.7;
+            font-size: 0.9rem;
+            color: #b8a88a;
+            line-height: 1.8;
         }
 
         .ponto-explicacao {
             margin: 12px 0;
-            padding: 12px 16px;
-            background: #0e0c0a88;
-            border-radius: 30px;
-            border: 1px solid #d4af3722;
+            padding: 14px 18px;
+            background: #0a080688;
+            border-radius: 25px;
+            border: 1px solid #6b4f1a33;
         }
         .ponto-explicacao strong {
-            color: #f5d742;
+            color: #d4af37;
+            font-weight: 700;
         }
 
         @media (max-width: 700px) {
-            .container { padding: 15px; border-radius: 30px; }
-            .main-title { font-size: 2.2rem; letter-spacing: 2px; }
-            .tab-btn { padding: 8px 14px; font-size: 0.75rem; }
-            .tab-content { padding: 16px; border-radius: 20px; }
-            h2 { font-size: 1.5rem; padding-left: 10px; }
+            .container { padding: 15px; border-radius: 25px; }
+            .main-title { font-size: 2.4rem; letter-spacing: 4px; }
+            .tab-btn { padding: 10px 16px; font-size: 0.85rem; }
+            .tab-content { padding: 18px; border-radius: 20px; }
+            h2 { font-size: 1.6rem; padding-left: 12px; }
             input { max-width: 100%; }
-            .btn { padding: 8px 18px; font-size: 0.8rem; }
-            .result-box { padding: 12px 16px; font-size: 0.85rem; }
-            .cabala-tabela { font-size: 0.75rem; }
-            .cabala-tabela th, .cabala-tabela td { padding: 6px 10px; }
+            .btn { padding: 10px 20px; font-size: 0.9rem; }
+            .result-box { padding: 14px 18px; font-size: 0.9rem; }
+            .cabala-tabela { font-size: 0.8rem; }
+            .cabala-tabela th, .cabala-tabela td { padding: 8px 10px; }
         }
         @media (max-width: 480px) {
-            .main-title { font-size: 1.8rem; }
-            .subtitle { font-size: 0.65rem; letter-spacing: 3px; padding: 3px 12px; }
-            .tab-btn { padding: 6px 10px; font-size: 0.65rem; letter-spacing: 0.5px; }
-            .info-card { padding: 14px; }
-            .info-card i { font-size: 1.6rem; }
+            .main-title { font-size: 2rem; letter-spacing: 2px; }
+            .subtitle { font-size: 0.7rem; letter-spacing: 4px; padding: 4px 14px; }
+            .tab-btn { padding: 8px 12px; font-size: 0.7rem; letter-spacing: 1px; }
+            .info-card { padding: 16px; }
+            .info-card i { font-size: 1.8rem; }
+            .disclaimer { font-size: 0.8rem; padding: 12px 16px; }
+            .ponto-explicacao { padding: 10px 14px; font-size: 0.85rem; }
         }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="water-bg"></div>
+    <div class="roots-pattern"></div>
 
     <div class="content">
         <h1 class="main-title">Kelira</h1>
         <div style="text-align: center;">
-            <span class="subtitle"><i class="fas fa-water water-icon"></i> espírito · mistério · oráculo <i class="fas fa-water water-icon"></i></span>
+            <span class="subtitle">espírito · mistério · oráculo</span>
         </div>
 
         <div class="tabs">
@@ -432,67 +498,64 @@
                 <h2>Bem-vindo</h2>
                 <div class="info-card">
                     <i class="fas fa-moon"></i>
-                    <p style="font-size: 1rem; color: #e8d5b0;">
-                        <i class="fas fa-water" style="color: #4aa3d0;"></i>
-                        Espaço sagrado para explorar os mistérios do oculto.
+                    <p style="font-size: 1.1rem; color: #d4c4a0;">
+                        espaço sagrado para explorar os mistérios do oculto
                     </p>
                     <div class="wave-divider">
                         <i class="fas fa-water"></i><i class="fas fa-water"></i><i class="fas fa-water"></i>
                     </div>
                     <p class="info-text">
-                        <i class="fas fa-circle" style="color: #d4af37; font-size: 0.4rem; vertical-align: middle;"></i>
-                        Informações básicas em breve...
+                        informações básicas em breve...
                     </p>
-                    <p class="info-text" style="margin-top: 12px; opacity: 0.6; font-size: 0.8rem;">
-                        <i class="fas fa-crown gold"></i> 
-                        A sabedoria ancestral encontra a tecnologia.
+                    <p class="info-text" style="margin-top: 14px; opacity: 0.5; font-size: 0.85rem;">
+                        a sabedoria ancestral encontra a tecnologia
                     </p>
                 </div>
             </div>
 
             <!-- CABALA -->
             <div id="cabala" class="tab-pane">
-                <h2>✨ Cabala</h2>
-                <p><i class="fas fa-water" style="color: #3b9bc0;"></i> Preencha seus dados para calcular sua cabala pessoal.</p>
+                <h2>Cabala</h2>
+                <p>preencha seus dados para calcular sua cabala pessoal.</p>
                 
                 <div class="field-group">
                     <div>
                         <label>Nome Completo</label>
-                        <input type="text" id="cabalaNome" placeholder="Seu nome completo" />
+                        <input type="text" id="cabalaNome" placeholder="seu nome completo" />
                     </div>
                     <div>
                         <label>Data de Nascimento</label>
                         <input type="date" id="cabalaData" />
                     </div>
                 </div>
-                <button class="btn" onclick="calcularCabalaCompleta()"><i class="fas fa-crown"></i> Calcular Cabala</button>
+                <button class="btn" onclick="calcularCabalaCompleta()">calcular cabala</button>
                 
                 <div id="cabalaResultado" class="result-box">
-                    <i class="fas fa-water"></i> Aguardando seus dados...
+                    aguardando seus dados...
                 </div>
             </div>
 
             <!-- NUMEROLOGIA -->
             <div id="numerologia" class="tab-pane">
                 <h2>Numerologia</h2>
-                <p><i class="fas fa-water" style="color: #3b9bc0;"></i> Digite seu nome completo para descobrir seu Número da Alma.</p>
+                <p>digite seu nome completo para descobrir seu número da alma.</p>
                 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
-                    <input type="text" id="numerologiaInput" placeholder="Seu nome completo" style="flex: 1; min-width: 180px;" />
-                    <button class="btn" onclick="calcularNumerologia()"><i class="fas fa-star"></i> Revelar</button>
+                    <input type="text" id="numerologiaInput" placeholder="seu nome completo" style="flex: 1; min-width: 180px;" />
+                    <button class="btn" onclick="calcularNumerologia()">revelar</button>
                 </div>
                 <div id="numerologiaResultado" class="result-box">
-                    <i class="fas fa-water"></i> Digite seu nome...
+                    digite seu nome...
                 </div>
             </div>
 
             <!-- MAPA ASTRAL -->
             <div id="mapa" class="tab-pane">
                 <h2>Mapa Astral</h2>
-                <p><i class="fas fa-water" style="color: #3b9bc0;"></i> Insira seus dados para um resumo do mapa astral.</p>
+                <p>insira seus dados para um resumo do mapa astral.</p>
                 <div class="field-group">
                     <div>
                         <label>Nome</label>
-                        <input type="text" id="mapaNome" placeholder="Seu nome" />
+                        <input type="text" id="mapaNome" placeholder="seu nome" />
                     </div>
                     <div>
                         <label>Data Nasc.</label>
@@ -503,17 +566,15 @@
                         <input type="time" id="mapaHora" />
                     </div>
                 </div>
-                <button class="btn" onclick="gerarMapaAstral()"><i class="fas fa-moon"></i> Gerar</button>
+                <button class="btn" onclick="gerarMapaAstral()">gerar</button>
                 <div id="mapaResultado" class="result-box">
-                    <i class="fas fa-water"></i> Aguardando dados...
+                    aguardando dados...
                 </div>
             </div>
         </div>
 
         <div class="footer">
-            <i class="fas fa-water" style="color: #2a6b8a;"></i>
-            <span style="font-family: 'MedievalSharp', cursive; letter-spacing: 2px; color: #b8a07caa;">Kelira · místico & digital</span>
-            <i class="fas fa-water" style="color: #2a6b8a;"></i>
+            <span>Kelira · místico & digital</span>
         </div>
     </div>
 </div>
@@ -533,7 +594,7 @@
     });
 
     // ============================================================
-    // CABALA COMPLETA
+    // CABALA COMPLETA - LÓGICA CORRIGIDA
     // ============================================================
     const orixas = {
         1: 'Exu', 2: 'Obá', 3: 'Ogum', 4: 'Egum-gum/Iemanjá',
@@ -543,12 +604,12 @@
     };
 
     const descricoes = {
-        'Odu': 'Representa a energia ancestral predominante. Quando não há desenvolvimento espiritual na vida atual, essa força tende a vir da encarnação anterior.',
-        'Nuca': 'Energia de proteção ligada ao que não é visível; atua no campo inconsciente e espiritual.',
-        'Testa': 'Energia que se manifesta primeiro. Funciona como o "ascendente": a forma como você se apresenta ao mundo e como é percebido.',
-        'Esquerda': 'Representa o karma: desafios e padrões difíceis que você veio trabalhar e superar nesta encarnação.',
-        'Direita': 'Indica seus dons naturais: energias com as quais você lida com mais facilidade.',
-        'Coroa': 'Energia central da encarnação atual; geralmente ligada a algo que você veio desenvolver ou conquistar.'
+        'Odu': 'representa a energia ancestral predominante. Quando não há desenvolvimento espiritual na vida atual, essa força tende a vir da encarnação anterior.',
+        'Nuca': 'energia de proteção ligada ao que não é visível; atua no campo inconsciente e espiritual.',
+        'Testa': 'energia que se manifesta primeiro. Funciona como o "ascendente": a forma como você se apresenta ao mundo e como é percebido.',
+        'Esquerda': 'representa o karma: desafios e padrões difíceis que você veio trabalhar e superar nesta encarnação.',
+        'Direita': 'indica seus dons naturais: energias com as quais você lida com mais facilidade.',
+        'Coroa': 'energia central da encarnação atual; geralmente ligada a algo que você veio desenvolver ou conquistar.'
     };
 
     function reduzirAte16(num) {
@@ -569,7 +630,7 @@
         const resultado = document.getElementById('cabalaResultado');
 
         if (!nome || !data) {
-            resultado.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #d4af37;"></i> Por favor, preencha nome completo e data de nascimento.';
+            resultado.innerHTML = 'preencha nome completo e data de nascimento.';
             return;
         }
 
@@ -601,7 +662,8 @@
         });
         const odu = reduzirAte16(somaTotal);
 
-        // NUCA: soma da primeira coluna (soma dos algarismos de cada linha)
+        // NUCA: soma da primeira coluna
+        // Pegamos o primeiro dígito de cada linha
         let nuca = 0;
         todosNumeros.forEach(num => {
             let str = num.toString();
@@ -643,23 +705,22 @@
 
         // 1. DISCLAIMER OBRIGATÓRIO
         html += `<div class="disclaimer">
-            <i class="fas fa-water" style="color: #4aa3d0;"></i>
-            Embora a leitura da cabala siga um método fixo de cálculo, as energias não se manifestam de forma totalmente rígida. A expressão dessas forças pode variar de acordo com o caminho espiritual da pessoa e seu momento de vida.
+            embora a leitura da cabala siga um método fixo de cálculo, as energias não se manifestam de forma totalmente rígida. A expressão dessas forças pode variar de acordo com o caminho espiritual da pessoa e seu momento de vida.
             <br><br>
-            Um mesmo número pode representar uma base energética, mas sua manifestação prática tende a se adaptar à vibração atual do indivíduo, considerando o conjunto da cabala e seu nível de desenvolvimento.
+            um mesmo número pode representar uma base energética, mas sua manifestação prática tende a se adaptar à vibração atual do indivíduo, considerando o conjunto da cabala e seu nível de desenvolvimento.
             <br><br>
-            Por isso, os resultados não devem ser interpretados como absolutos, mas como um direcionamento. Eles oferecem compreensão e base energética, mas o entendimento mais profundo exige acompanhamento e orientação espiritual adequada.
+            por isso, os resultados não devem ser interpretados como absolutos, mas como um direcionamento. Eles oferecem compreensão e base energética, mas o entendimento mais profundo exige acompanhamento e orientação espiritual adequada.
         </div>`;
 
         // 2. CABEÇALHO COM NOME
-        html += `<p style="font-size: 1.1rem; color: #f5e5b0; margin-bottom: 12px;">
-            <i class="fas fa-user gold"></i> <strong>${nome}</strong> · ${dia}/${mes}/${ano}
+        html += `<p style="font-size: 1.2rem; color: #d4c4a0; margin-bottom: 14px;">
+            <strong>${nome}</strong> · ${dia}/${mes}/${ano}
         </p>`;
 
         // 3. TABELA RESUMO
         html += `<table class="cabala-tabela">
             <thead>
-                <tr><th>Ponto</th><th>Número</th><th>Orixá</th></tr>
+                <tr><th>ponto</th><th>número</th><th>orixá</th></tr>
             </thead>
             <tbody>`;
         for (let [ponto, valor] of Object.entries(pontos)) {
@@ -672,36 +733,33 @@
         html += `</tbody></table>`;
 
         // 4. EXPLICAÇÕES DETALHADAS
-        html += `<div style="margin-top: 16px;">`;
+        html += `<div style="margin-top: 18px;">`;
         for (let [ponto, valor] of Object.entries(pontos)) {
-            const orixa = orixas[valor] || 'Desconhecido';
+            const orixa = orixas[valor] || 'desconhecido';
             const desc = descricoes[ponto] || '';
             const ehEsquerda = (ponto === 'Esquerda');
             const ehDireita = (ponto === 'Direita');
             
-            // Determinar luz e sombra
             let luzSombra = '';
             if (ehEsquerda) {
-                luzSombra = `<br>🌑 <strong>Sombra:</strong> Você tende a ter mais dificuldade em lidar com a energia de ${orixa}, pois essa é uma força que precisa ser compreendida e superada nesta encarnação. Desafios relacionados a essa vibração serão recorrentes até que você aprenda a transmutá-los.`;
+                luzSombra = `<br>sombra: você tende a ter mais dificuldade em lidar com a energia de ${orixa}, pois essa é uma força que precisa ser compreendida e superada nesta encarnação. Desafios relacionados a essa vibração serão recorrentes até que você aprenda a transmutá-los.`;
             } else if (ehDireita) {
-                luzSombra = `<br>🌞 <strong>Luz:</strong> Você possui facilidade natural com a energia de ${orixa}. Essa é uma força que flui espontaneamente em sua vida, trazendo dons e talentos que podem ser desenvolvidos com maior facilidade.`;
+                luzSombra = `<br>luz: você possui facilidade natural com a energia de ${orixa}. Essa é uma força que flui espontaneamente em sua vida, trazendo dons e talentos que podem ser desenvolvidos com maior facilidade.`;
             } else {
-                luzSombra = `<br>⚖️ <strong>Equilíbrio:</strong> A energia de ${orixa} atua de forma equilibrada em sua vida, oferecendo tanto desafios construtivos quanto dons naturais, dependendo do seu momento espiritual.`;
+                luzSombra = `<br>equilíbrio: a energia de ${orixa} atua de forma equilibrada em sua vida, oferecendo tanto desafios construtivos quanto dons naturais, dependendo do seu momento espiritual.`;
             }
 
             html += `<div class="ponto-explicacao">
                 <strong>${ponto} (${valor} — ${orixa})</strong><br>
-                <span style="font-size: 0.85rem; color: #c9b89a;">${desc}</span>
+                <span style="font-size: 0.9rem; color: #b8a88a;">${desc}</span>
                 ${luzSombra}
             </div>`;
         }
         html += `</div>`;
 
         // 5. MENSAGEM FINAL
-        html += `<div style="margin-top: 16px; text-align: center; font-size: 0.8rem; opacity: 0.7; border-top: 1px solid #d4af3722; padding-top: 14px;">
-            <i class="fas fa-feather-alt gold"></i> 
-            Que a sabedoria ancestral ilumine seu caminho.
-            <i class="fas fa-water" style="color: #3b9bc0; margin-left: 8px;"></i>
+        html += `<div style="margin-top: 18px; text-align: center; font-size: 0.85rem; opacity: 0.6; border-top: 1px solid #6b4f1a33; padding-top: 16px;">
+            que a sabedoria ancestral ilumine seu caminho.
         </div>`;
 
         resultado.innerHTML = html;
@@ -709,7 +767,7 @@
     }
 
     // ============================================================
-    // NUMEROLOGIA (simples)
+    // NUMEROLOGIA
     // ============================================================
     function calcularNumerologia() {
         const input = document.getElementById('numerologiaInput');
@@ -717,7 +775,7 @@
         const resultado = document.getElementById('numerologiaResultado');
 
         if (!nome) {
-            resultado.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #d4af37;"></i> Digite seu nome.';
+            resultado.innerHTML = 'digite seu nome.';
             return;
         }
 
@@ -730,7 +788,7 @@
         }
 
         if (somaVogais === 0) {
-            resultado.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #d4af37;"></i> Nenhuma vogal encontrada.';
+            resultado.innerHTML = 'nenhuma vogal encontrada.';
             return;
         }
 
@@ -744,60 +802,55 @@
         }
 
         resultado.innerHTML = `
-            <i class="fas fa-calculator gold"></i>
-            <strong style="color: #f5e5b0;">${nome}</strong> · 
-            Vogais: <span style="color: #d4af37;">${somaVogais}</span> · 
-            Alma: <span style="color: #f5d742; font-size: 1.4rem; font-weight: bold;">${reduzido}</span>
-            <i class="fas fa-water" style="color: #3b9bc0; margin-left: 8px;"></i>
+            <strong>${nome}</strong> · 
+            vogais: ${somaVogais} · 
+            alma: <strong>${reduzido}</strong>
         `;
     }
 
     // ============================================================
-    // MAPA ASTRAL (simulação)
+    // MAPA ASTRAL
     // ============================================================
     function gerarMapaAstral() {
-        const nome = document.getElementById('mapaNome').value.trim() || 'Anônimo';
+        const nome = document.getElementById('mapaNome').value.trim() || 'anônimo';
         const data = document.getElementById('mapaData').value;
         const hora = document.getElementById('mapaHora').value || '12:00';
         const resultado = document.getElementById('mapaResultado');
 
         if (!data) {
-            resultado.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #d4af37;"></i> Selecione sua data de nascimento.';
+            resultado.innerHTML = 'selecione sua data de nascimento.';
             return;
         }
 
         const partes = data.split('-');
         const mes = parseInt(partes[1]);
         const dia = parseInt(partes[2]);
-        let signo = 'Desconhecido';
-        let elemento = 'Água';
+        let signo = 'desconhecido';
+        let elemento = 'água';
 
-        if ((mes === 3 && dia >= 21) || (mes === 4 && dia <= 19)) { signo = 'Áries'; elemento = 'Fogo'; }
-        else if ((mes === 4 && dia >= 20) || (mes === 5 && dia <= 20)) { signo = 'Touro'; elemento = 'Terra'; }
-        else if ((mes === 5 && dia >= 21) || (mes === 6 && dia <= 20)) { signo = 'Gêmeos'; elemento = 'Ar'; }
-        else if ((mes === 6 && dia >= 21) || (mes === 7 && dia <= 22)) { signo = 'Câncer'; elemento = 'Água'; }
-        else if ((mes === 7 && dia >= 23) || (mes === 8 && dia <= 22)) { signo = 'Leão'; elemento = 'Fogo'; }
-        else if ((mes === 8 && dia >= 23) || (mes === 9 && dia <= 22)) { signo = 'Virgem'; elemento = 'Terra'; }
-        else if ((mes === 9 && dia >= 23) || (mes === 10 && dia <= 22)) { signo = 'Libra'; elemento = 'Ar'; }
-        else if ((mes === 10 && dia >= 23) || (mes === 11 && dia <= 21)) { signo = 'Escorpião'; elemento = 'Água'; }
-        else if ((mes === 11 && dia >= 22) || (mes === 12 && dia <= 21)) { signo = 'Sagitário'; elemento = 'Fogo'; }
-        else if ((mes === 12 && dia >= 22) || (mes === 1 && dia <= 19)) { signo = 'Capricórnio'; elemento = 'Terra'; }
-        else if ((mes === 1 && dia >= 20) || (mes === 2 && dia <= 18)) { signo = 'Aquário'; elemento = 'Ar'; }
-        else if ((mes === 2 && dia >= 19) || (mes === 3 && dia <= 20)) { signo = 'Peixes'; elemento = 'Água'; }
+        if ((mes === 3 && dia >= 21) || (mes === 4 && dia <= 19)) { signo = 'Áries'; elemento = 'fogo'; }
+        else if ((mes === 4 && dia >= 20) || (mes === 5 && dia <= 20)) { signo = 'Touro'; elemento = 'terra'; }
+        else if ((mes === 5 && dia >= 21) || (mes === 6 && dia <= 20)) { signo = 'Gêmeos'; elemento = 'ar'; }
+        else if ((mes === 6 && dia >= 21) || (mes === 7 && dia <= 22)) { signo = 'Câncer'; elemento = 'água'; }
+        else if ((mes === 7 && dia >= 23) || (mes === 8 && dia <= 22)) { signo = 'Leão'; elemento = 'fogo'; }
+        else if ((mes === 8 && dia >= 23) || (mes === 9 && dia <= 22)) { signo = 'Virgem'; elemento = 'terra'; }
+        else if ((mes === 9 && dia >= 23) || (mes === 10 && dia <= 22)) { signo = 'Libra'; elemento = 'ar'; }
+        else if ((mes === 10 && dia >= 23) || (mes === 11 && dia <= 21)) { signo = 'Escorpião'; elemento = 'água'; }
+        else if ((mes === 11 && dia >= 22) || (mes === 12 && dia <= 21)) { signo = 'Sagitário'; elemento = 'fogo'; }
+        else if ((mes === 12 && dia >= 22) || (mes === 1 && dia <= 19)) { signo = 'Capricórnio'; elemento = 'terra'; }
+        else if ((mes === 1 && dia >= 20) || (mes === 2 && dia <= 18)) { signo = 'Aquário'; elemento = 'ar'; }
+        else if ((mes === 2 && dia >= 19) || (mes === 3 && dia <= 20)) { signo = 'Peixes'; elemento = 'água'; }
 
         resultado.innerHTML = `
-            <i class="fas fa-globe-americas gold"></i>
-            <strong style="color: #f5e5b0;">${nome}</strong> · 
+            <strong>${nome}</strong> · 
             ${dia}/${mes}/${partes[0]} ${hora ? 'às '+hora : ''}<br/>
-            <span style="display: inline-block; margin-top: 8px; background: #1a1410; padding: 5px 18px; border-radius: 40px; border: 1px solid #d4af3744; font-size: 0.9rem;">
-                <i class="fas fa-sun" style="color: #d4af37;"></i> 
-                <strong style="color: #f5d742;">${signo}</strong> · 
-                <strong style="color: #4aa3d0;">${elemento}</strong>
-                <i class="fas fa-water" style="color: #3b9bc0; margin-left: 6px;"></i>
+            <span style="display: inline-block; margin-top: 8px; background: #14100c; padding: 6px 20px; border-radius: 30px; border: 1px solid #6b4f1a44;">
+                signo solar: <strong>${signo}</strong> · 
+                elemento: <strong>${elemento}</strong>
             </span>
             <br/>
-            <span style="font-size: 0.7rem; opacity: 0.6; display: block; margin-top: 8px;">
-                <i class="fas fa-feather-alt gold"></i> Mapa completo em desenvolvimento.
+            <span style="font-size: 0.8rem; opacity: 0.5; display: block; margin-top: 10px;">
+                mapa completo em desenvolvimento
             </span>
         `;
     }
@@ -806,7 +859,6 @@
     // EXEMPLOS INICIAIS
     // ============================================================
     window.onload = function() {
-        // Data de exemplo para a cabala
         const hoje = new Date();
         const ano = hoje.getFullYear();
         const mes = String(hoje.getMonth() + 1).padStart(2, '0');
@@ -814,11 +866,9 @@
         document.getElementById('cabalaData').value = `${ano-20}-${mes}-${dia}`;
         document.getElementById('cabalaNome').value = 'Maria Silva';
         
-        // Numerologia
         document.getElementById('numerologiaInput').value = 'Ana Maria';
         calcularNumerologia();
         
-        // Mapa Astral
         document.getElementById('mapaData').value = `${ano-20}-${mes}-${dia}`;
         document.getElementById('mapaNome').value = 'Luna';
         gerarMapaAstral();
