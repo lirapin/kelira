@@ -24,6 +24,7 @@
             align-items: center;
             font-family: 'Times New Roman', Times, serif;
             padding: 15px;
+            font-size: 12.5px;
         }
 
         .container {
@@ -148,7 +149,7 @@
             border-bottom: 2px solid #6b4f1a66;
             padding-bottom: 0;
             margin-bottom: 22px;
-            border-radius: 25px 25px 0 0;
+            border-radius: 8px 8px 0 0;
             background: rgba(0, 0, 0, 0.4);
             padding: 6px 6px 0 6px;
         }
@@ -160,7 +161,7 @@
             font-size: 1rem;
             font-weight: 500;
             color: #ffffff;
-            border-radius: 25px 25px 0 0;
+            border-radius: 8px 8px 0 0;
             cursor: pointer;
             transition: all 0.3s ease;
             letter-spacing: 2px;
@@ -186,7 +187,7 @@
             box-shadow: 
                 0 -4px 20px #6b4f1a44,
                 inset 0 -3px 0 #b8943a;
-            border-radius: 25px 25px 0 0;
+            border-radius: 8px 8px 0 0;
             opacity: 1;
         }
 
@@ -259,6 +260,21 @@
             font-weight: 300;
             font-size: 0.9rem;
             font-family: 'Times New Roman', Times, serif;
+        }
+
+        /* Remove o ícone do calendário do input date */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            display: none;
+        }
+        input[type="date"]::-webkit-inner-spin-button {
+            display: none;
+        }
+        input[type="date"]::-webkit-clear-button {
+            display: none;
+        }
+        input[type="date"] {
+            -webkit-appearance: none;
+            appearance: none;
         }
 
         .btn {
@@ -353,7 +369,7 @@
             flex-wrap: wrap;
             gap: 14px;
             align-items: flex-end;
-            margin-top: 10px;
+            margin-top: 16px;
         }
         .field-group > div {
             flex: 1;
@@ -497,7 +513,7 @@
     <div class="content">
         <h1 class="main-title">Kelira</h1>
         <div style="text-align: center;">
-            <span class="subtitle">espírito · mistério · oráculo</span>
+            <span class="subtitle">Pela mão da Rainha e do Rei!</span>
         </div>
 
         <div class="tabs">
@@ -529,10 +545,10 @@
             <!-- CABALA -->
             <div id="cabala" class="tab-pane">
                 <h2>Cabala</h2>
-                <p style="font-family: 'Times New Roman', Times, serif; color: #ffffff;">Preencha seus dados para calcular sua cabala pessoal.</p>
+                <p style="font-family: 'Times New Roman', Times, serif; color: #ffffff; margin-bottom: 8px;">Preencha seus dados para calcular sua cabala pessoal.</p>
                 
                 <div class="field-group">
-                    <div class="no-label">
+                    <div>
                         <label>Nome completo</label>
                         <input type="text" id="cabalaNome" placeholder="" value="" />
                     </div>
@@ -550,7 +566,7 @@
         </div>
 
         <div class="footer">
-            <span>Kelira</span>
+            <span>Kelira &copy; 2026</span>
         </div>
     </div>
 </div>
