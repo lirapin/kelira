@@ -262,21 +262,6 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        /* Remove o ícone do calendário do input date */
-        input[type="date"]::-webkit-calendar-picker-indicator {
-            display: none;
-        }
-        input[type="date"]::-webkit-inner-spin-button {
-            display: none;
-        }
-        input[type="date"]::-webkit-clear-button {
-            display: none;
-        }
-        input[type="date"] {
-            -webkit-appearance: none;
-            appearance: none;
-        }
-
         .btn {
             background: #14100c;
             border: 2px solid #6b4f1a88;
@@ -567,7 +552,7 @@
                     <div>
                         <label>Data de nascimento</label>
                         <div class="btn-group">
-                            <input type="date" id="cabalaData" value="" />
+                            <input type="text" id="cabalaData" placeholder="" value="" maxlength="10" />
                             <button class="btn" onclick="calcularCabalaCompleta()">Calcular</button>
                         </div>
                     </div>
@@ -595,6 +580,21 @@
         });
     });
 
+    // MÁSCARA PARA CAMPO DE DATA
+    document.getElementById('cabalaData').addEventListener('input', function(e) {
+        let value = this.value.replace(/\D/g, '');
+        if (value.length > 8) value = value.substring(0, 8);
+        
+        // Formata como dd/mm/aaaa
+        if (value.length > 4) {
+            value = value.substring(0, 2) + '/' + value.substring(2, 4) + '/' + value.substring(4);
+        } else if (value.length > 2) {
+            value = value.substring(0, 2) + '/' + value.substring(2);
+        }
+        
+        this.value = value;
+    });
+
     // ============================================================
     // CABALA COMPLETA - LOGICA 
     // ============================================================
@@ -608,7 +608,7 @@
     const descricoes = {
         'Odu': 'Representa a energia ancestral predominante. Quando não há desenvolvimento espiritual na vida atual, essa força tende a vir da encarnação anterior.',
         'Nuca': 'Energia de proteção ligada ao que não é visível; atua no campo inconsciente e espiritual.',
-        'Testa': 'Energia que se manifesta primeiro. É a forma como você se apresenta ao mundo e como é percebido.',
+        'Testa': 'Energia que se manifesta primeiro. Funciona como o "ascendente": a forma como você se apresenta ao mundo e como é percebido.',
         'Esquerda': 'Representa o karma: desafios e padrões difíceis que você veio trabalhar e superar nesta encarnação.',
         'Direita': 'Indica seus dons naturais: energias com as quais você lida com mais facilidade.',
         'Coroa': 'Energia central da encarnação atual; geralmente ligada a algo que você veio desenvolver ou conquistar.'
@@ -638,7 +638,7 @@
 
     function calcularCabalaCompleta() {
         const nome = document.getElementById('cabalaNome').value.trim();
-        const data = document.getElementById('cabalaData').value;
+        const dataInput = document.getElementById('cabalaData').value.trim();
         
         // Criar elemento para exibir o resultado
         const resultadoDiv = document.createElement('div');
@@ -655,19 +655,27 @@
         const fieldGroup = document.querySelector('.field-group');
         fieldGroup.parentNode.insertBefore(resultadoDiv, fieldGroup.nextSibling);
 
-        if (!nome || !data) {
+        if (!nome || !dataInput) {
             resultadoDiv.innerHTML = 'Preencha nome completo e data de nascimento.';
             return;
         }
 
-        const partes = data.split('-');
-        const anoStr = partes[0];
-        const mesStr = partes[1];
-        const diaStr = partes[2];
+        // Validar formato da data (dd/mm/aaaa)
+        const dataParts = dataInput.split('/');
+        if (dataParts.length !== 3) {
+            resultadoDiv.innerHTML = 'Formato de data inválido. Use dd/mm/aaaa.';
+            return;
+        }
 
-        const dia = diaStr.padStart(2, '0');
-        const mes = mesStr.padStart(2, '0');
-        
+        const dia = dataParts[0].padStart(2, '0');
+        const mes = dataParts[1].padStart(2, '0');
+        const anoStr = dataParts[2];
+
+        if (dia.length !== 2 || mes.length !== 2 || anoStr.length !== 4) {
+            resultadoDiv.innerHTML = 'Formato de data inválido. Use dd/mm/aaaa.';
+            return;
+        }
+
         const primeirosAno = anoStr.substring(0, 2);
         const ultimosAno = anoStr.substring(2, 4);
 
@@ -717,7 +725,10 @@
         let html = '';
 
         html += `<div class="disclaimer">
-            Embora a leitura da cabala siga um método fixo de cálculo, as energias não se manifestam de forma totalmente rígida. A expressão dessas forças pode variar de acordo com o caminho espiritual da pessoa e seu momento de vida. Um mesmo número pode representar uma base energética, mas sua manifestação prática tende a se adaptar à vibração atual do indivíduo, considerando o conjunto da cabala e seu nível de desenvolvimento.
+            Embora a leitura da cabala siga um método fixo de cálculo, as energias não se manifestam de forma totalmente rígida. A expressão dessas forças pode variar de acordo com o caminho espiritual da pessoa e seu momento de vida.
+            <br><br>
+            Um mesmo número pode representar uma base energética, mas sua manifestação prática tende a se adaptar à vibração atual do indivíduo, considerando o conjunto da cabala e seu nível de desenvolvimento.
+            <br><br>
             Por isso, os resultados não devem ser interpretados como absolutos, mas como um direcionamento. Eles oferecem compreensão e base energética, mas o entendimento mais profundo exige acompanhamento e orientação espiritual adequada.
         </div>`;
 
