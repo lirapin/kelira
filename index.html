@@ -200,7 +200,7 @@
             box-shadow: 
                 inset 0 0 50px #00000088,
                 0 10px 30px #000000aa;
-            min-height: 300px;
+            min-height: 0;
         }
         .tab-pane {
             display: none;
@@ -357,6 +357,7 @@
             align-items: flex-end;
             margin-top: 16px;
             margin-bottom: 0;
+            padding-bottom: 0;
         }
         .field-group > div {
             flex: 1;
@@ -478,9 +479,12 @@
             line-height: 1.8;
         }
 
-        /* Remove o espaço extra do tab-content */
+        /* Remove todo espaço extra da aba cabala */
         #cabala {
             padding-bottom: 0;
+        }
+        #cabala p:last-of-type {
+            margin-bottom: 0;
         }
 
         @media (max-width: 700px) {
