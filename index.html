@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kelira - Espiritualidade, Ocultismo e Oráculos</title>
+    <title>Kelira</title>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
@@ -479,7 +479,7 @@
                 <div class="info-card">
                     <i class="fas fa-moon"></i>
                     <p style="font-size: 1.1rem; color: #d4c8b0;">
-                        Espaço sagrado para explorar os mistérios do oculto
+                        Espaço sagrado para explorar os mistérios do oculto.
                     </p>
                     <div class="wave-divider">
                         <i class="fas fa-water"></i><i class="fas fa-water"></i><i class="fas fa-water"></i>
@@ -488,7 +488,7 @@
                         Informações básicas em breve...
                     </p>
                     <p class="info-text" style="margin-top: 14px; opacity: 0.5; font-size: 0.85rem;">
-                        A sabedoria ancestral encontra a tecnologia
+                        A sabedoria ancestral encontra a tecnologia.
                     </p>
                 </div>
             </div>
@@ -517,7 +517,7 @@
         </div>
 
         <div class="footer">
-            <span>Kelira · místico & digital</span>
+            <span>Kelira</span>
         </div>
     </div>
 </div>
@@ -537,7 +537,7 @@
     });
 
     // ============================================================
-    // CABALA COMPLETA - LOGICA CORRIGIDA
+    // CABALA COMPLETA - LOGICA 
     // ============================================================
     const orixas = {
         1: 'Exu', 2: 'Obá', 3: 'Ogum', 4: 'Egum-gum/Iemanjá',
@@ -547,12 +547,12 @@
     };
 
     const descricoes = {
-        'Odu': 'representa a energia ancestral predominante. Quando não há desenvolvimento espiritual na vida atual, essa força tende a vir da encarnação anterior.',
-        'Nuca': 'energia de proteção ligada ao que não é visível; atua no campo inconsciente e espiritual.',
-        'Testa': 'energia que se manifesta primeiro. Funciona como o "ascendente": a forma como você se apresenta ao mundo e como é percebido.',
-        'Esquerda': 'representa o karma: desafios e padrões difíceis que você veio trabalhar e superar nesta encarnação.',
-        'Direita': 'indica seus dons naturais: energias com as quais você lida com mais facilidade.',
-        'Coroa': 'energia central da encarnação atual; geralmente ligada a algo que você veio desenvolver ou conquistar.'
+        'Odu': 'Representa a energia ancestral predominante. Quando não há desenvolvimento espiritual na vida atual, essa força tende a vir da encarnação anterior.',
+        'Nuca': 'Energia de proteção ligada ao que não é visível; atua no campo inconsciente e espiritual.',
+        'Testa': 'Energia que se manifesta primeiro. Funciona como o "ascendente": a forma como você se apresenta ao mundo e como é percebido.',
+        'Esquerda': 'Representa o karma: desafios e padrões difíceis que você veio trabalhar e superar nesta encarnação.',
+        'Direita': 'Indica seus dons naturais: energias com as quais você lida com mais facilidade.',
+        'Coroa': 'Energia central da encarnação atual; geralmente ligada a algo que você veio desenvolver ou conquistar.'
     };
 
     function reduzirAte16(num) {
@@ -649,11 +649,11 @@
 
         // 1. DISCLAIMER OBRIGATÓRIO
         html += `<div class="disclaimer">
-            embora a leitura da cabala siga um método fixo de cálculo, as energias não se manifestam de forma totalmente rígida. A expressão dessas forças pode variar de acordo com o caminho espiritual da pessoa e seu momento de vida.
+            Embora a leitura da cabala siga um método fixo de cálculo, as energias não se manifestam de forma totalmente rígida. A expressão dessas forças pode variar de acordo com o caminho espiritual da pessoa e seu momento de vida.
             <br><br>
-            um mesmo número pode representar uma base energética, mas sua manifestação prática tende a se adaptar à vibração atual do indivíduo, considerando o conjunto da cabala e seu nível de desenvolvimento.
+            Um mesmo número pode representar uma base energética, mas sua manifestação prática tende a se adaptar à vibração atual do indivíduo, considerando o conjunto da cabala e seu nível de desenvolvimento.
             <br><br>
-            por isso, os resultados não devem ser interpretados como absolutos, mas como um direcionamento. Eles oferecem compreensão e base energética, mas o entendimento mais profundo exige acompanhamento e orientação espiritual adequada.
+            Por isso, os resultados não devem ser interpretados como absolutos, mas como um direcionamento. Eles oferecem compreensão e base energética, mas o entendimento mais profundo exige acompanhamento e orientação espiritual adequada.
         </div>`;
 
         // 2. CABEÇALHO COM NOME E DATA
@@ -686,11 +686,11 @@
             
             let luzSombra = '';
             if (ehEsquerda) {
-                luzSombra = `<br>sombra: você tende a ter mais dificuldade em lidar com a energia de ${orixa}, pois essa é uma força que precisa ser compreendida e superada nesta encarnação. Desafios relacionados a essa vibração serão recorrentes até que você aprenda a transmutá-los.`;
+                luzSombra = `<br>Sombra: Você tende a ter mais dificuldade em lidar com a energia de ${orixa}, pois essa é uma força que precisa ser compreendida e superada nesta encarnação. Desafios relacionados a essa vibração serão recorrentes até que você aprenda a transmutá-los.`;
             } else if (ehDireita) {
-                luzSombra = `<br>luz: você possui facilidade natural com a energia de ${orixa}. Essa é uma força que flui espontaneamente em sua vida, trazendo dons e talentos que podem ser desenvolvidos com maior facilidade.`;
+                luzSombra = `<br>Luz: Você possui facilidade natural com a energia de ${orixa}. Essa é uma força que flui espontaneamente em sua vida, trazendo dons e talentos que podem ser desenvolvidos com maior facilidade.`;
             } else {
-                luzSombra = `<br>equilíbrio: a energia de ${orixa} atua de forma equilibrada em sua vida, oferecendo tanto desafios construtivos quanto dons naturais, dependendo do seu momento espiritual.`;
+                luzSombra = `<br>Equilíbrio: A energia de ${orixa} atua de forma equilibrada em sua vida, oferecendo tanto desafios construtivos quanto dons naturais, dependendo do seu momento espiritual.`;
             }
 
             html += `<div class="ponto-explicacao">
@@ -703,7 +703,7 @@
 
         // 5. MENSAGEM FINAL
         html += `<div style="margin-top: 18px; text-align: center; font-size: 0.85rem; opacity: 0.6; border-top: 1px solid #6b4f1a33; padding-top: 16px;">
-            que a sabedoria ancestral ilumine seu caminho.
+            Que a sabedoria ancestral ilumine seu caminho.
         </div>`;
 
         resultado.innerHTML = html;
