@@ -229,7 +229,6 @@
             line-height: 1.8;
             font-size: 1rem;
             letter-spacing: 0.3px;
-            text-align: justify;
         }
 
         input, select, textarea {
@@ -259,36 +258,36 @@
         }
 
         .btn {
-            background: linear-gradient(145deg, #1a1410, #0a0806);
-            border: 2px solid #8b6f2a;
+            background: #14100c;
+            border: 2px solid #6b4f1a88;
             padding: 12px 32px;
             border-radius: 40px !important;
             color: #d4af37;
             font-family: 'Inter', 'Playfair Display', serif;
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 0.95rem;
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.25s;
-            box-shadow: 0 5px 0 #4a3518, 0 10px 30px #00000077;
+            box-shadow: inset 0 4px 15px #00000066;
             letter-spacing: 2px;
-            margin: 4px 4px 4px 0;
+            margin: 6px 0 14px;
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            height: 48px;
         }
         .btn i {
             color: #b8943a;
             font-size: 0.9rem;
         }
         .btn:hover {
-            transform: translateY(-3px);
-            background: linear-gradient(145deg, #2a1f18, #14100c);
-            box-shadow: 0 7px 0 #5a4020, 0 15px 40px #00000099;
-            border-color: #d4af37;
+            border-color: #b8943a;
+            box-shadow: 0 0 30px #6b4f1a44, inset 0 4px 15px #00000088;
+            background: #1c1612;
         }
         .btn:active {
             transform: translateY(4px);
-            box-shadow: 0 2px 0 #4a3518;
+            box-shadow: inset 0 4px 15px #00000066, 0 0 10px #6b4f1a33;
         }
 
         .result-box {
@@ -304,9 +303,6 @@
             word-break: break-word;
             line-height: 1.8;
         }
-        .result-box p {
-            text-align: justify;
-        }
 
         .info-card {
             background: rgba(0,0,0,0.3);
@@ -321,9 +317,6 @@
             color: #b8943a;
             opacity: 0.3;
             margin-bottom: 12px;
-        }
-        .info-card p {
-            text-align: center;
         }
 
         .wave-divider {
@@ -372,10 +365,6 @@
             margin-bottom: 2px;
             letter-spacing: 1.5px;
             font-weight: 400;
-            text-align: left;
-        }
-        label:first-letter {
-            text-transform: uppercase;
         }
 
         .cabala-tabela {
@@ -400,7 +389,6 @@
             padding: 10px 14px;
             border-bottom: 1px solid #6b4f1a33;
             color: #d4c8b0;
-            text-align: left;
         }
         .cabala-tabela tr:last-child td {
             border-bottom: none;
@@ -424,7 +412,6 @@
             color: #c0b098;
             line-height: 1.8;
             font-weight: 300;
-            text-align: justify;
         }
 
         .ponto-explicacao {
@@ -433,11 +420,13 @@
             background: #0a080688;
             border-radius: 25px;
             border: 1px solid #6b4f1a33;
-            text-align: justify;
         }
         .ponto-explicacao strong {
             color: #d4af37;
             font-weight: 600;
+        }
+        .ponto-explicacao span {
+            font-style: italic;
         }
 
         .btn-group {
@@ -447,11 +436,15 @@
             flex-wrap: wrap;
         }
         .btn-group .btn {
-            margin: 0;
+            margin: 6px 0 14px;
             white-space: nowrap;
         }
         .btn-group input {
             max-width: 200px;
+        }
+
+        .no-label label {
+            display: none;
         }
 
         @media (max-width: 700px) {
@@ -503,16 +496,16 @@
                 <h2>Bem-vindo</h2>
                 <div class="info-card">
                     <i class="fas fa-moon"></i>
-                    <p style="font-size: 1.1rem; color: #d4c8b0; text-align: center;">
+                    <p style="font-size: 1.1rem; color: #d4c8b0;">
                         Espaço sagrado para explorar os mistérios do oculto.
                     </p>
                     <div class="wave-divider">
                         <i class="fas fa-water"></i><i class="fas fa-water"></i><i class="fas fa-water"></i>
                     </div>
-                    <p class="info-text" style="text-align: center;">
+                    <p class="info-text">
                         Informações básicas em breve...
                     </p>
-                    <p class="info-text" style="margin-top: 14px; opacity: 0.5; font-size: 0.85rem; text-align: center;">
+                    <p class="info-text" style="margin-top: 14px; opacity: 0.5; font-size: 0.85rem;">
                         A sabedoria ancestral encontra a tecnologia.
                     </p>
                 </div>
@@ -524,7 +517,7 @@
                 <p>Preencha seus dados para calcular sua cabala pessoal.</p>
                 
                 <div class="field-group">
-                    <div>
+                    <div class="no-label">
                         <label>Nome completo</label>
                         <input type="text" id="cabalaNome" placeholder="seu nome completo" value="" />
                     </div>
@@ -593,20 +586,13 @@
     }
 
     function capitalizarTexto(texto) {
-        // Capitaliza primeira letra de cada palavra, mas mantém nomes próprios
         return texto.replace(/\w\S*/g, function(palavra) {
-            // Lista de palavras que não devem ser capitalizadas (exceto nomes próprios)
             const minusculas = ['de', 'da', 'do', 'das', 'dos', 'e', 'ou', 'para', 'por', 'com', 'sem', 'sob', 'sobre'];
             if (minusculas.includes(palavra.toLowerCase())) {
                 return palavra.toLowerCase();
             }
             return palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase();
         });
-    }
-
-    function capitalizarPrimeiraLetra(texto) {
-        if (!texto) return texto;
-        return texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase();
     }
 
     function calcularCabalaCompleta() {
@@ -619,27 +605,22 @@
             return;
         }
 
-        // Extrair dia, mês e ano como strings para preservar zeros à esquerda
         const partes = data.split('-');
         const anoStr = partes[0];
         const mesStr = partes[1];
         const diaStr = partes[2];
 
-        // Garantir que dia e mês tenham 2 dígitos
         const dia = diaStr.padStart(2, '0');
         const mes = mesStr.padStart(2, '0');
         
-        // Separar ano em dois primeiros e dois últimos dígitos
         const primeirosAno = anoStr.substring(0, 2);
         const ultimosAno = anoStr.substring(2, 4);
 
-        // Linhas: dia, mês, primeirosAno, ultimosAno
         const linha1 = dia;
         const linha2 = mes;
         const linha3 = primeirosAno;
         const linha4 = ultimosAno;
 
-        // ODU: soma de todos os algarismos das quatro linhas
         let somaTotal = 0;
         const todasLinhas = [linha1, linha2, linha3, linha4];
         todasLinhas.forEach(linha => {
@@ -649,7 +630,6 @@
         });
         const odu = reduzirAte16(somaTotal);
 
-        // NUCA: soma da primeira coluna
         let nuca = 0;
         todasLinhas.forEach(linha => {
             if (linha.length > 0) {
@@ -658,7 +638,6 @@
         });
         nuca = reduzirAte16(nuca);
 
-        // TESTA: soma da segunda coluna
         let testa = 0;
         todasLinhas.forEach(linha => {
             if (linha.length > 1) {
@@ -667,16 +646,10 @@
         });
         testa = reduzirAte16(testa);
 
-        // DIREITA = Nuca + Testa
         let direita = reduzirAte16(nuca + testa);
-
-        // ESQUERDA = Nuca + Testa + Direita
         let esquerda = reduzirAte16(nuca + testa + direita);
-
-        // COROA = Nuca + Testa + Direita + Esquerda
         let coroa = reduzirAte16(nuca + testa + direita + esquerda);
 
-        // Mapear para os orixás
         const pontos = {
             'Odu': odu,
             'Nuca': nuca,
@@ -686,10 +659,8 @@
             'Coroa': coroa
         };
 
-        // Construir resultado
         let html = '';
 
-        // 1. DISCLAIMER OBRIGATÓRIO
         html += `<div class="disclaimer">
             Embora a leitura da cabala siga um método fixo de cálculo, as energias não se manifestam de forma totalmente rígida. A expressão dessas forças pode variar de acordo com o caminho espiritual da pessoa e seu momento de vida.
             <br><br>
@@ -698,13 +669,11 @@
             Por isso, os resultados não devem ser interpretados como absolutos, mas como um direcionamento. Eles oferecem compreensão e base energética, mas o entendimento mais profundo exige acompanhamento e orientação espiritual adequada.
         </div>`;
 
-        // 2. CABEÇALHO COM NOME E DATA
         const nomeCapitalizado = capitalizarTexto(nome);
-        html += `<p style="font-size: 1.2rem; color: #d4c8b0; margin-bottom: 14px; text-align: left;">
+        html += `<p style="font-size: 1.2rem; color: #d4c8b0; margin-bottom: 14px;">
             <strong>${nomeCapitalizado}</strong> · ${dia}/${mes}/${anoStr}
         </p>`;
 
-        // 3. TABELA RESUMO
         html += `<table class="cabala-tabela">
             <thead>
                 <tr><th>Ponto</th><th>Número</th><th>Orixá</th></tr>
@@ -719,7 +688,6 @@
         }
         html += `</tbody></table>`;
 
-        // 4. EXPLICAÇÕES DETALHADAS
         html += `<div style="margin-top: 18px;">`;
         for (let [ponto, valor] of Object.entries(pontos)) {
             const orixa = orixas[valor] || 'desconhecido';
